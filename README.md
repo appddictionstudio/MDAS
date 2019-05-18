@@ -22,4 +22,6 @@
 
 ## Jupyter Notebooks
 To view the Jupyter notebooks within Chrome; navigate to the main directoy and enter in the following:
-```jupyter notebook
+```
+jupyter notebook
+```
