@@ -1,5 +1,11 @@
 # MDAS Python Project with iot 
 
+### Cloud Service Provider
+AWS
+
+### Device Association
+Raspberry pi 
+
 ### Frontend Environment
 - Angular 7
 
