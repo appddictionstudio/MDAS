@@ -19,3 +19,7 @@
 - https://pypi.org/project/xlrd/
 > pydotplus
 - https://pypi.org/project/pydotplus/
+
+## Jupyter Notebooks
+To view the Jupyter notebooks within Chrome; navigate to the main directoy and enter in the following:
+```jupyter notebook
