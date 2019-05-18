@@ -7,7 +7,7 @@
 - Phython
 
 ### Python Packages
-Sci Kit Learn
+> Sci Kit Learn
 - https://scikit-learn.org/stable/
 Numpy
 - https://www.numpy.org/
