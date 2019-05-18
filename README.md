@@ -27,6 +27,11 @@ Raspberry pi
 - https://pypi.org/project/pydotplus/
 
 ## Jupyter Notebooks
+Install Jupyter Notebooks by running the following:
+```
+pip install jupyter 
+```
+
 To view the Jupyter notebooks within Chrome; navigate to the main directoy and enter in the following:
 ```
 jupyter notebook
