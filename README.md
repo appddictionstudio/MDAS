@@ -9,13 +9,13 @@
 ### Python Packages
 > Sci Kit Learn
 - https://scikit-learn.org/stable/
-Numpy
+> Numpy
 - https://www.numpy.org/
-Pandas
+> Pandas
 - https://pandas.pydata.org/
-Statsmodels
+> Statsmodels
 - https://www.statsmodels.org/stable/index.html
-xlrd
+> xlrd
 - https://pypi.org/project/xlrd/
-pydotplus
+> pydotplus
 - https://pypi.org/project/pydotplus/
