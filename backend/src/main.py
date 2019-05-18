@@ -1,6 +1,7 @@
 # coding=utf-8
 
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 from .entities.entity import Session, engine, Base
 from .entities.calculations import Calculations, CalSchema
@@ -8,6 +9,9 @@ from .entities.calculations import Calculations, CalSchema
 ######################################
 # creating the Flask application
 app = Flask(__name__)
+
+# Added CORS for the API
+CORS(app)
 
 # @app.route('/')
 # def hello_world():
@@ -58,9 +62,8 @@ def get_exams():
 @app.route('/calculations', methods=['POST'])
 def add_exam():
     # mount exam object
-    posted_calculation = CalSchema(only=('title', 'description'))\
-        .load(request.get_json())
-
+    posted_calculation = CalSchema(only=('title', 'description')).load(request.get_json())
+    print(posted_calculation)
     calculation = Calculations(**posted_calculation.data, created_by="HTTP post request")
 
     # persist exam
