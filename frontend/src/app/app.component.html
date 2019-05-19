@@ -1,11 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>MDAS Python IoT Project</h1>
-</div>
-<ul>
-  <li *ngFor="let calculation of calculationList">
-    {{calculation.title}}
-  </li>
-</ul>
+<mat-drawer-container>
+  <mat-drawer #drawer mode="side">
+    <mat-list role="list">
+      <mat-list-item role="listitem">Pie Chart</mat-list-item>
+      <mat-list-item role="listitem">Line Chart</mat-list-item>
+      <mat-list-item role="listitem">Bar Chart</mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <div style="height:100vh">
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <button mat-button (click)="drawer.toggle()">
+          <mat-icon svgIcon="beaker">home</mat-icon>
+        </button>
+        <span> MDAS Python Data Science IoT Project</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div *ngIf="chart">
+      <canvas id="ctx">{{ chart }}</canvas>
+    </div>
 
+  </div>
+</mat-drawer-container>
 <router-outlet></router-outlet>

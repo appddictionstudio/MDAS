@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://127.0.0.1:8050'
+  API_URL: 'http://127.0.0.1:8050',
+  WEATHER_url: 'https://samples.openweathermap.org/data/2.5/forecast/daily?id=524901&appid=b1b15e88fa797225412429c1c50c122a1'
 };
 
 /*
