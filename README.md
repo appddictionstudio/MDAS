@@ -36,3 +36,10 @@ To view the Jupyter notebooks within Chrome; navigate to the main directoy and e
 ```
 jupyter notebook
 ```
+## API Library
+-> Request
+- https://2.python-requests.org//en/master/
+Install by using:
+```
+pip install requests
+```
