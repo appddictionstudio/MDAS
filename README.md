@@ -3,7 +3,7 @@
 ### Cloud Service Provider
 AWS
 
-### Device Association
+### External Device Association
 Raspberry pi 
 
 ### Frontend Environment
