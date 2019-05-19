@@ -7,7 +7,7 @@ AWS
 Raspberry pi 
 
 ### Frontend Environment
-- Angular 7
+- Angular 9
 - Chart.js
 - Ng2-Charts
 
