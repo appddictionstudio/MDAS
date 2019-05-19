@@ -3,14 +3,19 @@
 ### Cloud Service Provider
 AWS
 
-### Device Association
+### External Device Association
 Raspberry pi 
 
 ### Frontend Environment
-- Angular 7
+- Angular 9
+- Chart.js
+- Ng2-Charts
 
 ### Backend Language
 - Phython
+
+> Web Framework
+- Flask
 
 ### Python Packages
 > Sci Kit Learn
