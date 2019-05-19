@@ -8,9 +8,14 @@ Raspberry pi
 
 ### Frontend Environment
 - Angular 7
+- Chart.js
+- Ng2-Charts
 
 ### Backend Language
 - Phython
+
+> Web Framework
+- Flask
 
 ### Python Packages
 > Sci Kit Learn
