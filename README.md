@@ -48,3 +48,7 @@ Install by using:
 ```
 pip install requests
 ```
+
+## Data Gathering Tech. 
+- Pull a CSV from https://www.nasdaq.com/screening/company-list.aspx and insert into the package under the assets folder. 
+
