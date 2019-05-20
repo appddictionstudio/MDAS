@@ -2,9 +2,12 @@
 <mat-drawer-container>
   <mat-drawer #drawer mode="side">
     <mat-list role="list">
-      <mat-list-item role="listitem">Pie Chart</mat-list-item>
-      <mat-list-item role="listitem">Line Chart</mat-list-item>
-      <mat-list-item role="listitem">Bar Chart</mat-list-item>
+      <mat-list-item role="listitem">Postgress (Docker)</mat-list-item>
+      <mat-list-item role="listitem">API within Angular Frontend</mat-list-item>
+      <mat-list-item role="listitem">API from Python Backend</mat-list-item>
+      <mat-list-item role="listitem">API Spring Boot</mat-list-item>
+      <mat-list-item role="listitem">IoT Interaction</mat-list-item>
+      <mat-list-item role="listitem">Lambda Processing</mat-list-item>
     </mat-list>
   </mat-drawer>
   <div style="height:100vh">
@@ -16,7 +19,7 @@
         <span> MDAS Python Data Science IoT Project</span>
       </mat-toolbar-row>
     </mat-toolbar>
-    <div *ngIf="chart">
+    <div *ngIf="chart" style="position: relative; height:20vh; width:60vw; margin:15px;">
       <canvas id="ctx">{{ chart }}</canvas>
     </div>
 
