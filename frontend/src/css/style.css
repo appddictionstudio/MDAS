@@ -82,7 +82,7 @@ h1.example-app-name {
 .cp-main-grid-container {
   display: grid;
   grid-template-rows: repeat(24, 1fr);
-  grid-template-columns: repart(12, 1fr);
+  grid-template-columns: repart(16, 1fr);
   margin: 0;
   padding: .5rem; }
   .cp-main-grid-container__item {
@@ -119,6 +119,9 @@ h1.example-app-name {
     .cp-main-grid-container__item--10 {
       background-color: rgba(23, 36, 95, 0.411);
       grid-area: 21 / 6 / span 5 / span 4; }
+    .cp-main-grid-container__item--11 {
+      background-color: rgba(23, 36, 95, 0.411);
+      grid-area: 1 / 11 / span 8 / span 8; }
 
 .sector--label {
   color: #fff;
@@ -137,6 +140,11 @@ h1.example-app-name {
   margin: 20px !important;
   background-color: #ced8e1 !important;
   box-shadow: 1px 1px 4px 1px #315e80; }
+
+.selector--header {
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px; }
 
 /* Theme for the ripple elements.*/
 /* stylelint-disable material/no-prefixes */

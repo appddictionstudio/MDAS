@@ -19,6 +19,7 @@ import { MatListModule } from '@angular/material/list';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonToggleModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
 
 // Charts
 import { ChartsModule } from 'ng2-charts';
@@ -33,6 +34,7 @@ import { CpMainComponent } from './cp-main/cp-main.component';
 import { NavBottomComponent } from './nav-bottom/nav-bottom.component';
 import { AboutComponent } from './about/about.component';
 import { CpIndustriesComponent } from './cp-industries/cp-industries.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { CpIndustriesComponent } from './cp-industries/cp-industries.component';
     CdkTableModule,
     MatMenuModule,
     FlexLayoutModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [CalculationsService, WeatherService, CompanyService],
   bootstrap: [AppComponent]

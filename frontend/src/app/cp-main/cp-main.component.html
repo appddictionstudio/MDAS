@@ -2,7 +2,8 @@
 <div class="cp-main-grid-container">
     <div class="cp-main-grid-container__item cp-main-grid-container__item--1">
         <span class="sector--label">
-            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[0].imageType }}"></mat-icon>{{ distinctSectors[0].sectordata }}
+            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[0].imageType }}"></mat-icon>
+            {{ distinctSectors[0].sectordata }}
         </span>
         <div>
             <span class="sector--smalllabel">Average Market Cap:</span>
@@ -11,7 +12,8 @@
     </div>
     <div class="cp-main-grid-container__item cp-main-grid-container__item--2">
         <span class="sector--label">
-                <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[1].imageType }}"></mat-icon>{{ distinctSectors[1].sectordata }}
+            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[1].imageType }}"></mat-icon>
+            {{ distinctSectors[1].sectordata }}
         </span>
         <div>
             <span class="sector--smalllabel">Average Market Cap:</span>
@@ -20,7 +22,8 @@
     </div>
     <div class="cp-main-grid-container__item cp-main-grid-container__item--3">
         <span class="sector--label">
-                <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[2].imageType }}"></mat-icon>{{ distinctSectors[2].sectordata }}
+            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[2].imageType }}"></mat-icon>
+            {{ distinctSectors[2].sectordata }}
         </span>
         <div>
             <span class="sector--smalllabel">Average Market Cap:</span>
@@ -29,7 +32,8 @@
     </div>
     <div class="cp-main-grid-container__item cp-main-grid-container__item--4">
         <span class="sector--label">
-                <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[3].imageType }}"></mat-icon>{{ distinctSectors[3].sectordata }}
+            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[3].imageType }}"></mat-icon>
+            {{ distinctSectors[3].sectordata }}
         </span>
         <div>
             <span class="sector--smalllabel">Average Market Cap:</span>
@@ -38,7 +42,8 @@
     </div>
     <div class="cp-main-grid-container__item cp-main-grid-container__item--5">
         <span class="sector--label">
-                <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[4].imageType }}"></mat-icon>{{ distinctSectors[4].sectordata }}
+            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[4].imageType }}"></mat-icon>
+            {{ distinctSectors[4].sectordata }}
         </span>
         <div>
             <span class="sector--smalllabel">Average Market Cap:</span>
@@ -47,7 +52,8 @@
     </div>
     -<div class="cp-main-grid-container__item cp-main-grid-container__item--6">
         <span class="sector--label">
-                <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[5].imageType }}"></mat-icon>{{ distinctSectors[5].sectordata }}
+            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[5].imageType }}"></mat-icon>
+            {{ distinctSectors[5].sectordata }}
         </span>
         <div>
             <span class="sector--smalllabel">Average Market Cap:</span>
@@ -56,7 +62,8 @@
     </div>
     <div class="cp-main-grid-container__item cp-main-grid-container__item--7">
         <span class="sector--label">
-                <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[6].imageType }}"></mat-icon>{{ distinctSectors[6].sectordata }}
+            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[6].imageType }}"></mat-icon>
+            {{ distinctSectors[6].sectordata }}
         </span>
         <div>
             <span class="sector--smalllabel">Average Market Cap:</span>
@@ -65,15 +72,18 @@
     </div>
     <div class="cp-main-grid-container__item cp-main-grid-container__item--8">
         <span class="sector--label">
-                <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[7].imageType }}"></mat-icon>{{ distinctSectors[7].sectordata }}
+            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[7].imageType }}"></mat-icon>
+            {{ distinctSectors[7].sectordata }}
         </span>
         <div>
             <span class="sector--smalllabel">Average Market Cap:</span>
         </div>
+        <button mat-button class="sector--industrybutton">Industries</button>
     </div>
     <div class="cp-main-grid-container__item cp-main-grid-container__item--9">
         <span class="sector--label">
-                <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[8].imageType }}"></mat-icon>{{ distinctSectors[8].sectordata }}
+            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[8].imageType }}"></mat-icon>
+            {{ distinctSectors[8].sectordata }}
         </span>
         <div>
             <span class="sector--smalllabel">Average Market Cap:</span>
@@ -82,12 +92,26 @@
     </div>
     <div class="cp-main-grid-container__item cp-main-grid-container__item--10">
         <span class="sector--label">
-                <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[9].imageType }}"></mat-icon>{{ distinctSectors[9].sectordata }}
+            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[9].imageType }}"></mat-icon>
+            {{ distinctSectors[9].sectordata }}
         </span>
         <div>
             <span class="sector--smalllabel">Average Market Cap:</span>
         </div>
         <button mat-button class="sector--industrybutton">Industries</button>
+    </div>
+    <div class="cp-main-grid-container__item cp-main-grid-container__item--11">
+        <span class="selector--header">Analytics Selector</span>
+        <br>
+        <mat-form-field>
+            <mat-label>Sector</mat-label>
+            <mat-select>
+                <mat-option>
+                <!-- <mat-option *ngFor="let food of foods" [value]="food.value"> -->
+                    Option1
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
 </div>
 <app-nav-bottom></app-nav-bottom>
