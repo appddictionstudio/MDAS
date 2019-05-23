@@ -12,7 +12,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { Subscription, BehaviorSubject, Observable } from 'rxjs';
 
 // Services
-import { CalculationsService } from '../services/calculations.service';
+import { CalculationsService } from './services/calculations.service';
 
 // Angular Materials
 import { DomSanitizer } from '@angular/platform-browser';
@@ -22,8 +22,8 @@ import { MatIconRegistry } from '@angular/material';
 import { Calculations } from '../models/calculations.model';
 
 // Services
-import { WeatherService } from '../services/weather.service';
-import { CompanyService } from '../services/companies.service';
+import { WeatherService } from './services/weather.service';
+import { CompanyService } from './services/companies.service';
 
 
 
@@ -66,13 +66,13 @@ export class AppComponent {
         console.error
       );
 
-    this.companyService.getCompanies().toPromise().then((data) => {
-      const stringData = data.toString();
-      const updatedDataFrame = JSON.parse(stringData);
-      console.log(updatedDataFrame);
-        let symbols = updatedDataFrame['Symbol'];
-        console.log(symbols);
-    });
+    // this.companyService.getCompanies().toPromise().then((data) => {
+    //   const stringData = data.toString();
+    //   const updatedDataFrame = JSON.parse(stringData);
+    //   console.log(updatedDataFrame);
+    //     let symbols = updatedDataFrame['Symbol'];
+    //     console.log(symbols);
+    // });
 
     this.weatherService.getWeather().subscribe((results) => {
       console.log(results);

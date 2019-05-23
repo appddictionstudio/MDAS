@@ -24,17 +24,23 @@ import { MatButtonToggleModule } from '@angular/material';
 import { ChartsModule } from 'ng2-charts';
 
 // Service
-import { CalculationsService } from '../services/calculations.service';
-import { WeatherService } from '../services/weather.service';
-import { CompanyService } from '../services/companies.service';
+import { CalculationsService } from './services/calculations.service';
+import { WeatherService } from './services/weather.service';
+import { CompanyService } from './services/companies.service';
+
+// Components
 import { CpMainComponent } from './cp-main/cp-main.component';
 import { NavBottomComponent } from './nav-bottom/nav-bottom.component';
+import { AboutComponent } from './about/about.component';
+import { CpIndustriesComponent } from './cp-industries/cp-industries.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CpMainComponent,
-    NavBottomComponent
+    NavBottomComponent,
+    AboutComponent,
+    CpIndustriesComponent
   ],
   imports: [
     BrowserModule,

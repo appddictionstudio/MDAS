@@ -29,4 +29,22 @@
        `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
   }
-  
+
+  .listcontainer{
+    cursor: pointer;
+    background-image: linear-gradient(to bottom right, #94a0a6, #596e7b);
+    width: 250px;
+    text-align: center;
+    padding: 15px;
+    &--label{
+      font-family: $largeLabel;
+      font-size:20px;
+    }
+  }
+.mat-drawer-container{
+  background-color: #6ba6b8 !important;
+}
+
+.mat-drawer{
+  background-color: #57abc8 !important;
+}

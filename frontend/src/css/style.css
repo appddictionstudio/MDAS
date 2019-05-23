@@ -54,27 +54,89 @@ h1.example-app-name {
        `<body>` to be our scrolling element for mobile layouts. */
   flex: 1 0 auto; }
 
+.listcontainer {
+  cursor: pointer;
+  background-image: linear-gradient(to bottom right, #94a0a6, #596e7b);
+  width: 250px;
+  text-align: center;
+  padding: 15px; }
+  .listcontainer--label {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px; }
+
+.mat-drawer-container {
+  background-color: #6ba6b8 !important; }
+
+.mat-drawer {
+  background-color: #57abc8 !important; }
+
+.cp-main-heading {
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px; }
+
 .cp-main-container {
   background-color: #000000; }
 
 .cp-main-grid-container {
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(24, 1fr);
   grid-template-columns: repart(12, 1fr);
   margin: 0;
   padding: .5rem; }
-  .cp-main-grid-container__item--1 {
-    background-color: rgba(23, 36, 95, 0.411);
-    grid-area: 1 / 1 / span 5 / span 4; }
-  .cp-main-grid-container__item--2 {
-    background-color: rgba(23, 36, 95, 0.411);
-    grid-area: 1 / 6 / span 5 / span 4; }
+  .cp-main-grid-container__item {
+    padding: 15px;
+    border: dashed .5px #36526d;
+    margin-bottom: .5px; }
+    .cp-main-grid-container__item--1 {
+      background-color: rgba(23, 36, 95, 0.411);
+      grid-area: 1 / 1 / span 5 / span 4; }
+    .cp-main-grid-container__item--2 {
+      background-color: rgba(23, 36, 95, 0.411);
+      grid-area: 1 / 6 / span 5 / span 4; }
+    .cp-main-grid-container__item--3 {
+      background-color: rgba(23, 36, 95, 0.411);
+      grid-area: 6 / 1 / span 5 / span 4; }
+    .cp-main-grid-container__item--4 {
+      background-color: rgba(23, 36, 95, 0.411);
+      grid-area: 6 / 6 / span 5 / span 4; }
+    .cp-main-grid-container__item--5 {
+      background-color: rgba(23, 36, 95, 0.411);
+      grid-area: 11 / 1 / span 5 / span 4; }
+    .cp-main-grid-container__item--6 {
+      background-color: rgba(23, 36, 95, 0.411);
+      grid-area: 11 / 6 / span 5 / span 4; }
+    .cp-main-grid-container__item--7 {
+      background-color: rgba(23, 36, 95, 0.411);
+      grid-area: 16 / 1 / span 5 / span 4; }
+    .cp-main-grid-container__item--8 {
+      background-color: rgba(23, 36, 95, 0.411);
+      grid-area: 16 / 6 / span 5 / span 4; }
+    .cp-main-grid-container__item--9 {
+      background-color: rgba(23, 36, 95, 0.411);
+      grid-area: 21 / 1 / span 5 / span 4; }
+    .cp-main-grid-container__item--10 {
+      background-color: rgba(23, 36, 95, 0.411);
+      grid-area: 21 / 6 / span 5 / span 4; }
 
 .sector--label {
   color: #fff;
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   font-weight: 600; }
+
+.sector--smalllabel {
+  color: #fff; }
+
+.sector--labelicons {
+  width: 79px !important;
+  height: auto !important; }
+
+.sector--industrybutton {
+  margin: 20px !important;
+  background-color: #ced8e1 !important;
+  box-shadow: 1px 1px 4px 1px #315e80; }
 
 /* Theme for the ripple elements.*/
 /* stylelint-disable material/no-prefixes */

@@ -1,15 +1,25 @@
+.cp-main-heading{
+    font-family: $largeLabel;
+    color: #fff;
+    font-size:20px;
+    padding:10px;
+}
+
 .cp-main-container {
     background-color: $primary;
 }
 
 .cp-main-grid-container{
     display:grid;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(24, 1fr);
     grid-template-columns: repart(12, 1fr);
     margin: 0;
     padding: .5rem;
     // background-color: #6a8190;
     &__item{
+        padding: 15px;
+        border: dashed .5px #36526d;
+        margin-bottom: .5px;
         &--1{
             background-color:rgba(23, 36, 95, 0.411);
             // border: solid 1px #000;
@@ -20,6 +30,46 @@
             // border: solid 1px #000;
             grid-area: 1 / 6 / span 5 / span 4;
         }
+        &--3{
+            background-color:rgba(23, 36, 95, 0.411);
+            // border: solid 1px #000;
+            grid-area: 6 / 1 / span 5 / span 4;
+        }
+        &--4{
+            background-color:rgba(23, 36, 95, 0.411);
+            // border: solid 1px #000;
+            grid-area: 6 / 6 / span 5 / span 4;
+        }
+        &--5{
+            background-color:rgba(23, 36, 95, 0.411);
+            // border: solid 1px #000;
+            grid-area: 11 / 1 / span 5 / span 4;
+        }
+        &--6{
+            background-color:rgba(23, 36, 95, 0.411);
+            // border: solid 1px #000;
+            grid-area: 11 / 6 / span 5 / span 4;
+        }
+        &--7{
+            background-color:rgba(23, 36, 95, 0.411);
+            // border: solid 1px #000;
+            grid-area: 16 / 1 / span 5 / span 4;
+        }
+        &--8{
+            background-color:rgba(23, 36, 95, 0.411);
+            // border: solid 1px #000;
+            grid-area: 16 / 6 / span 5 / span 4;
+        }
+        &--9{
+            background-color:rgba(23, 36, 95, 0.411);
+            // border: solid 1px #000;
+            grid-area: 21 / 1 / span 5 / span 4;
+        }
+        &--10{
+            background-color:rgba(23, 36, 95, 0.411);
+            // border: solid 1px #000;
+            grid-area: 21 / 6 / span 5 / span 4;
+        }
     }
 }
 
@@ -29,5 +79,17 @@
         font-family: $largeLabel;
         font-size:20px;
         font-weight:600;
+    }
+    &--smalllabel{
+        color: #fff;
+    }
+    &--labelicons{
+        width: 79px !important;
+        height: auto !important;
+    }
+    &--industrybutton{
+        margin: 20px !important;
+        background-color: #ced8e1 !important;
+        box-shadow: 1px 1px 4px 1px #315e80;
     }
 }

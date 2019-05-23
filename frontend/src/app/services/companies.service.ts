@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 // Environment
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class CompanyService {
@@ -16,5 +16,9 @@ export class CompanyService {
  // GET list of public
   getCompanies(){
     return this.http.get(`${environment.API_URL}/companyAnalysis`)
+  }
+
+  getDistinctSector(){
+    return this.http.get(`${environment.API_URL}/distinctSectors`)
   }
 }

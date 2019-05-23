@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 // Environment
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 // Models
-import { Calculations } from '../models/calculations.model';
+import { Calculations } from '../../models/calculations.model';
 
 @Injectable()
 export class CalculationsService {
