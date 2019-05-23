@@ -28,11 +28,13 @@ import { CalculationsService } from '../services/calculations.service';
 import { WeatherService } from '../services/weather.service';
 import { CompanyService } from '../services/companies.service';
 import { CpMainComponent } from './cp-main/cp-main.component';
+import { NavBottomComponent } from './nav-bottom/nav-bottom.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CpMainComponent
+    CpMainComponent,
+    NavBottomComponent
   ],
   imports: [
     BrowserModule,

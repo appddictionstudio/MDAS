@@ -1,3 +1,33 @@
 .cp-main-container {
     background-color: $primary;
 }
+
+.cp-main-grid-container{
+    display:grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repart(12, 1fr);
+    margin: 0;
+    padding: .5rem;
+    // background-color: #6a8190;
+    &__item{
+        &--1{
+            background-color:rgba(23, 36, 95, 0.411);
+            // border: solid 1px #000;
+            grid-area: 1 / 1 / span 5 / span 4;
+        }
+        &--2{
+            background-color:rgba(23, 36, 95, 0.411);
+            // border: solid 1px #000;
+            grid-area: 1 / 6 / span 5 / span 4;
+        }
+    }
+}
+
+.sector{
+    &--label{
+        color: #fff;
+        font-family: $largeLabel;
+        font-size:20px;
+        font-weight:600;
+    }
+}

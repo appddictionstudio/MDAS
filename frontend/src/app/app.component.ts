@@ -40,8 +40,6 @@ export class AppComponent {
   calculationListSub: Subscription;
   calculationList = {};
 
-  fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
-
   private _mobileQueryListener: () => void;
 
   constructor(private CalculationService: CalculationsService,

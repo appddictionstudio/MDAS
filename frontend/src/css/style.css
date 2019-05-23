@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap");
 body {
   background-color: #000000; }
 
@@ -9,7 +10,8 @@ mat-toolbar.mat-primary {
   background-size: cover; }
 
 .toolbar-container--name {
-  color: #FFC7AB; }
+  color: #FFEBDB;
+  font-family: 'Roboto', sans-serif, bold; }
 
 .toolbar-container--icon {
   color: #FFEBDB; }
@@ -54,6 +56,25 @@ h1.example-app-name {
 
 .cp-main-container {
   background-color: #000000; }
+
+.cp-main-grid-container {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repart(12, 1fr);
+  margin: 0;
+  padding: .5rem; }
+  .cp-main-grid-container__item--1 {
+    background-color: rgba(23, 36, 95, 0.411);
+    grid-area: 1 / 1 / span 5 / span 4; }
+  .cp-main-grid-container__item--2 {
+    background-color: rgba(23, 36, 95, 0.411);
+    grid-area: 1 / 6 / span 5 / span 4; }
+
+.sector--label {
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600; }
 
 /* Theme for the ripple elements.*/
 /* stylelint-disable material/no-prefixes */

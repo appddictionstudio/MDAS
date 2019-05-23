@@ -10,7 +10,8 @@ mat-toolbar.mat-primary {
 
 .toolbar-container{
     &--name{
-        color: $accent2;
+        color: $accent3;
+        font-family: 'Roboto', sans-serif, bold;
     }
     &--icon{
         color: $accent3;
