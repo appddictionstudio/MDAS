@@ -2,9 +2,12 @@
 
 from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
+import pandas as pd
 
 from .entities.entity import Session, engine, Base
 from .entities.calculations import Calculations, CalSchema
+
+# Importing Company Analysis Notebook
 
 ######################################
 # creating the Flask application
@@ -61,6 +64,24 @@ Base.metadata.create_all(engine)
 # print('### Calculations:')
 # for calculation in calculations:
 #    print(f'({calculation.id}) {calculation.title} - {calculation.description}')
+
+# Setting up dataframe
+# Setting up dataframe
+cols_to_use = [0,1,2,3,4,5,6,7]
+csv_file_path = "../assets/companylist.csv"
+df = pd.read_csv(csv_file_path, 
+        usecols= cols_to_use,
+        encoding='utf-8'
+        )
+df = df.fillna('Empty')
+df['IPOyear'] = df['IPOyear'].astype(str)
+df['IPOyear'] = df['IPOyear'].str.strip('.0')
+df = df.to_json()
+df.replace('\\','')
+
+@app.route('/companyAnalysis')
+def get_company_data():
+    return jsonify(df)
 
 @app.route('/calculations')
 def get_exams():

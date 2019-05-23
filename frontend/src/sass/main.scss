@@ -1,0 +1,13 @@
+// Global
+@import './global/variables.scss';
+
+// Components
+@import './components/toolbar.scss';
+@import './components/sidenav';
+@import './components/cp-main';
+
+// Theme
+// @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "../themes/theme";
+@include mat-core();
+@include angular-material-theme($my-theme);

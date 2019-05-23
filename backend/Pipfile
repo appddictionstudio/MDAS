@@ -11,6 +11,10 @@ psycopg2-binary = "*"
 flask = "*"
 marshmallow = "*"
 flask-cors = "*"
+pandas = "*"
+lxml = "*"
+bs4 = "*"
+beautifulsoup4 = "*"
 
 [requires]
 python_version = "3.7"

@@ -18,3 +18,11 @@
   .example-sidenav {
     padding: 20px;
   }
+
+  table {
+    width: 100%;
+  }
+  
+  th {
+    text-align: left;
+  }

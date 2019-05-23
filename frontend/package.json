@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compile:sass": "node-sass src/sass/main.scss src/css/style.css -w"
   },
   "private": true,
   "dependencies": {
@@ -16,6 +17,7 @@
     "@angular/common": "^8.0.0-rc.4",
     "@angular/compiler": "^8.0.0-rc.4",
     "@angular/core": "^8.0.0-rc.4",
+    "@angular/flex-layout": "^8.0.0-beta.25",
     "@angular/forms": "^8.0.0-rc.4",
     "@angular/material": "^8.0.0-rc.1",
     "@angular/platform-browser": "^8.0.0-rc.4",
@@ -23,6 +25,7 @@
     "@angular/platform-server": "^8.0.0-rc.4",
     "@angular/router": "^8.0.0-rc.4",
     "chart.js": "^2.8.0",
+    "compile-sass": "^0.1.2",
     "core-js": "^2.5.4",
     "ng2-charts": "^2.2.3",
     "rxjs": "~6.5.2",

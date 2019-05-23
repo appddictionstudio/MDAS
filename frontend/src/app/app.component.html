@@ -1,28 +1,29 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<mat-drawer-container>
-  <mat-drawer #drawer mode="side">
-    <mat-list role="list">
-      <mat-list-item role="listitem">Postgress (Docker)</mat-list-item>
-      <mat-list-item role="listitem">API within Angular Frontend</mat-list-item>
-      <mat-list-item role="listitem">API from Python Backend</mat-list-item>
-      <mat-list-item role="listitem">API Spring Boot</mat-list-item>
-      <mat-list-item role="listitem">IoT Interaction</mat-list-item>
-      <mat-list-item role="listitem">Lambda Processing</mat-list-item>
-    </mat-list>
-  </mat-drawer>
-  <div style="height:100vh">
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <button mat-button (click)="drawer.toggle()">
-          <mat-icon svgIcon="beaker">home</mat-icon>
-        </button>
-        <span> MDAS Python Data Science IoT Project</span>
-      </mat-toolbar-row>
-    </mat-toolbar>
-    <div *ngIf="chart" style="position: relative; height:20vh; width:60vw; margin:15px;">
-      <canvas id="ctx">{{ chart }}</canvas>
-    </div>
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <mat-toolbar-row>
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon class="toolbar-container--icon" svgIcon="beaker">menu</mat-icon>
+    </button>
+    <h1 class="toolbar-container--name">MDAS - Data Analytics</h1>
+    <span class="toolbar-container--spacer"></span>
+    <mat-icon class="toolbar-container--icon" aria-hidden="false" aria-label="icon1"></mat-icon>
+    <mat-icon class="toolbar-container--icon" aria-hidden="false" aria-label="icon2">help</mat-icon>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-  </div>
-</mat-drawer-container>
-<router-outlet></router-outlet>
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <mat-nav-list>
+        <span class="toolbar-container--list">Sectors</span>
+        <!-- <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a> -->
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <p *ngFor="let content of fillerContent">{{content}}</p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
