@@ -69,6 +69,7 @@ Base.metadata.create_all(engine)
 
 # Setting up dataframe
 df = pd.DataFrame()
+
 def get_distinct_sector_listing():
     cols_to_use = [0,1,2,3,4,5,6,7]
     csv_file_path = "../assets/companylist.csv"
@@ -100,13 +101,41 @@ def get_distinct_sector_listing():
     # df.replace('\\','')
     return df
 
+def get_industries_by_sector():
+    cols_to_use = [0,1,2,3,4,5,6,7]
+    csv_file_path = "../assets/companylist.csv"
+    df = pd.read_csv(csv_file_path, 
+#         nrows=101, 
+        usecols= cols_to_use,
+        encoding='utf-8'
+        )
+    df = df.fillna('Empty')
+    df['IPOyear'] = df['IPOyear'].astype(str)
+    df['IPOyear'] = df['IPOyear'].str.strip('.0')
+    df = df.rename(index=str, columns = {"Symbol": "SYM", "Name": "CO.", "LastSale": "LP", "MarketCap": "MRKCAP", "IPOyear": "YR", "Sector": "SEC", "industry": "IND", "Summary Quote": "SUMQTE"})
+    df['SYM'] = df['SYM'].str.strip()
+    df['SEC'] = df['SEC'].str.strip()
+    df['SEC_CONV'] = np.where(df['SEC']=="Consumer Durables", 'Consumer Industry', df['SEC'])
+    df['SEC_CONV'] = np.where(df['SEC']=="Consumer Non-Durables", 'Consumer Industry', df['SEC'])
+    df['SEC_CONV'] = np.where(df['SEC']=='Consumer Services', 'Consumer Industry', df['SEC'])
+    df["SEC"] = df["SEC"].replace("Empty", "No Industry Identified")
+    df["SEC_CONV"] = df["SEC_CONV"].replace("Empty", "No Industry Identified")
+    df["SEC_CONV"] = df["SEC_CONV"].replace("Consumer Durables", "Consumer Industry")
+    df["SEC_CONV"] = df["SEC_CONV"].replace("Consumer Non-Durables", "Consumer Industry")
+    df["SEC_CONV"] = df["SEC_CONV"].replace("Technology", "Technology/Energy")
+    df["SEC_CONV"] = df["SEC_CONV"].replace("Energy", "Technology/Energy")
+    df = df.groupby('SEC_CONV').head(100)
+    df = json.dumps(df.values.tolist())
+    # df.replace('\\','')
+    return df
+
 @app.route('/distinctSectors')
 def get_distinct_sectors():
     return jsonify(get_distinct_sector_listing())
 
-# @app.route('/companyAnalysis')
-# def get_company_data():
-#     return jsonify(df)
+@app.route('/distinctSectorsWithIndustries')
+def get_industries_with_sectros():
+    return jsonify(get_industries_by_sector())
 
 @app.route('/calculations')
 def get_exams():
