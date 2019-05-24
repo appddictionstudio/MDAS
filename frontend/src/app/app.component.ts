@@ -60,7 +60,7 @@ export class AppComponent {
     this.calculationListSub = this.CalculationService
       .getCalculations()
       .subscribe(res => {
-        console.log(res);
+        // console.log(res);
         this.calculationList = res;
       },
         console.error

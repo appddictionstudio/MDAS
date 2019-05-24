@@ -8,6 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, } from '@angular/material'
 })
 export class CpIndustriesComponent implements OnInit {
   industries = [];
+
   constructor(public dialogRef: MatDialogRef<CpIndustriesComponent>,
               @Inject(MAT_DIALOG_DATA)
               public data: any,
