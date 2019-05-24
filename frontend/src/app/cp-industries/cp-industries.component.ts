@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, } from '@angular/material'
 
 @Component({
   selector: 'app-cp-industries',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cp-industries.component.css']
 })
 export class CpIndustriesComponent implements OnInit {
+  industries = [];
+  constructor(public dialogRef: MatDialogRef<CpIndustriesComponent>,
+              @Inject(MAT_DIALOG_DATA)
+              public data: any,
+  ) { }
 
-  constructor() { }
-
+  
   ngOnInit() {
+    this.industries = this.data.industryData;
+    console.log(this.industries)
   }
 
 }

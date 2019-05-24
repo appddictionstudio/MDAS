@@ -1,11 +1,13 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // Angular Materials
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry, MatDialogRef, MatDialog } from '@angular/material';
 
 // Services
 import { CompanyService } from '../services/companies.service';
+import { CpIndustriesComponent } from '../cp-industries/cp-industries.component';
+
 
 @Component({
   selector: 'app-cp-main',
@@ -14,10 +16,21 @@ import { CompanyService } from '../services/companies.service';
 })
 
 
-export class CpMainComponent implements OnInit, AfterViewInit {
+export class CpMainComponent implements OnInit {
   distinctSectors = []
+  healthCareIndustries = []
+  financeIndustries = []
+  consumerIndustries = []
+  technologyEngergyIndustries = []
+  noIndustryIdentified = []
+  capitalgoodsIndustries = []
+  miscellanousIndustries = []
+  publicUntilitiesIndustries = []
+  basicIndustries = []
+  transporationIndustries = []
 
   constructor(private companyService: CompanyService,
+    public dialog: MatDialog,
     private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon('technology', sanitizer.bypassSecurityTrustResourceUrl('./assets/svgs/Technology.svg'));
@@ -33,6 +46,39 @@ export class CpMainComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.companyService.getSectorAndIndustryData().toPromise().then((data) => {
+      const convertDataToString = data.toString();
+      const parseDataToJson = JSON.parse(convertDataToString);
+      console.log(parseDataToJson);
+      parseDataToJson.map((set1) => {
+        console.log(set1[8]);
+        if (set1[8] === 'Transportation'){
+          this.transporationIndustries.push(set1);
+        } else if (set1[8] === 'Basic Industries') {
+          this.basicIndustries.push(set1);
+        } else if (set1[8] === 'Public Utilities') {
+          this.publicUntilitiesIndustries.push(set1);
+        } else if (set1[8] === 'Miscellaneous') {
+          this.miscellanousIndustries.push(set1);
+        } else if (set1[8] === 'Basic Industries') {
+          this.basicIndustries.push(set1);
+        } else if (set1[8] === 'Capital Goods') {
+          this.capitalgoodsIndustries.push(set1); 
+        } else if (set1[8] === 'No Industry Identified') {
+          this.noIndustryIdentified.push(set1);
+        } else if (set1[8] === 'Technology/Energy'){
+          this.technologyEngergyIndustries.push(set1);
+        } else if (set1[8] === 'Consumer Industry'){
+          this.consumerIndustries.push(set1);
+        } else if (set1[8] === 'Finance') {
+          this.financeIndustries.push(set1);
+        } else if (set1[8] === 'Health Care') {
+          this.healthCareIndustries.push(set1);
+        }
+      })
+      console.log(this.healthCareIndustries);
+      
+    });
     this.companyService.getDistinctSector().toPromise().then((data) => {
       const stringData = data.toString();
       const distinctCompanyDataFrame = JSON.parse(stringData);
@@ -67,47 +113,19 @@ export class CpMainComponent implements OnInit, AfterViewInit {
       console.log(imageType);
       this.distinctSectors = imageType;
     });
-    // this.open = false;
-    // this.button = document.getElementById('cn-button');
-    // this.wrapper = document.getElementById('cn-wrapper');
-    // this.overlay = document.getElementById('cn-overlay');
-
-    // document.addEventListener('click', this.closeNav);
-    // this.button.addEventListener('click', this.handler, false);
-    // this.button.addEventListener('focus', this.handler, false);
-    // this.wrapper.addEventListener('click', this.cnhandle, false);
   }
-
-  ngAfterViewInit() {
+  openListOfIndustriesForSector(industrySelector) {
+    console.log(industrySelector);
+    let industryData = [];
+    if (industrySelector === 'Health Care'){
+      industryData = this.healthCareIndustries;
+    }
+    const dialogRef = this.dialog.open(CpIndustriesComponent, {
+      height: '60%',
+      width: '99%',
+      disableClose: false,
+      data: { industryData },
+      panelClass: 'nbc-details-dialog'
+    });
   }
-
-  // cnhandle(e){
-  //   e.stopPropagation();
-  // }
-
-  // handler(e: Event){
-  //   if (!e) var e = window.event;
-  //   e.stopPropagation();//so that it doesn't trigger click event on document
-
-  //     if(!open){
-  //       this.openNav();
-  //     }
-  //   else{
-  //       this.closeNav();
-  //     }
-  // }
-
-  // openNav(){
-  //   // this.open = true;
-  //   //   this.button.innerHTML = "-";
-  //   //   this.classie.add(this.overlay, 'on-overlay');
-  //   //   this.classie.add(this.wrapper, 'opened-nav');
-  // }
-
-  // closeNav(){
-  //   // this.open = false;
-  //   // this.button.innerHTML = "+";
-  //   // this.classie.remove(this.overlay, 'on-overlay');
-  //   // this.classie.remove(this.wrapper, 'opened-nav');
-  // }
 }

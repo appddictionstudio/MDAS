@@ -20,6 +20,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonToggleModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material';
 
 // Charts
 import { ChartsModule } from 'ng2-charts';
@@ -60,9 +61,11 @@ import { MatSelectModule } from '@angular/material/select';
     FlexLayoutModule,
     MatButtonToggleModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [CalculationsService, WeatherService, CompanyService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CpIndustriesComponent]
 })
 export class AppModule { }

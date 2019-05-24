@@ -21,4 +21,8 @@ export class CompanyService {
   getDistinctSector(){
     return this.http.get(`${environment.API_URL}/distinctSectors`)
   }
+
+  getSectorAndIndustryData(){
+    return this.http.get(`${environment.API_URL}/distinctSectorsWithIndustries`)
+  }
 }
