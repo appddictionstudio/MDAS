@@ -1,8 +1,8 @@
 <h1 class="cp-main-heading">Industry Analysis by Sector</h1>
-<div style="display: block; width:500px;">
+<div style="display: block; width:800px;">
     <canvas id="sectors">{{ sectorChart }}</canvas>
 </div>
-<!-- <div class="cp-main-grid-container">
+<div class="cp-main-grid-container">
     <div class="cp-main-grid-container__item cp-main-grid-container__item--1">
         <span class="sector--label">
             <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[0].imageType }}"></mat-icon>
@@ -109,11 +109,11 @@
         <mat-form-field>
             <mat-label>Sector</mat-label>
             <mat-select>
-                <mat-option>
-                    Option1
+                <mat-option *ngFor="let option of options">
+                    {{ option }}
                 </mat-option>
             </mat-select>
         </mat-form-field>
     </div>
-</div> -->
+</div>
 <app-nav-bottom></app-nav-bottom>

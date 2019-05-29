@@ -6,7 +6,7 @@ mat-toolbar.mat-primary {
   background-color: #152d3c !important; }
 
 .mat-drawer-content {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(43, 94, 117, 0.3)), url("../assets/imgs/industry_bg.jpg"), #000;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.54), #152d3c), url("../assets/imgs/industry_bg.jpg"), #000;
   background-size: cover; }
 
 .toolbar-container--name {
@@ -120,6 +120,7 @@ h1.example-app-name {
       background-color: rgba(23, 36, 95, 0.411);
       grid-area: 21 / 6 / span 5 / span 4; }
     .cp-main-grid-container__item--11 {
+      text-align: center;
       background-color: rgba(23, 36, 95, 0.411);
       grid-area: 1 / 11 / span 8 / span 8; }
 

@@ -5,6 +5,8 @@ from flask_cors import CORS
 import pandas as pd
 import numpy as np
 import json
+# import requests
+import sys
 
 from .entities.entity import Session, engine, Base
 from .entities.calculations import Calculations, CalSchema
@@ -71,14 +73,10 @@ Base.metadata.create_all(engine)
 df = pd.DataFrame()
 
 # Getting list of 100 industries from 10 sectors. 
-import requests
-import pandas as pd
-import numpy as np
-import sys
 df = pd.DataFrame()
 def get_avg_sector_rates():
     cols_to_use = [0,1,2,3,4,5,6,7]
-    csv_file_path = "../../assets/companylist.csv"
+    csv_file_path = "../assets/companylist.csv"
     df = pd.read_csv(csv_file_path, 
         usecols= cols_to_use,
         encoding='utf-8'
@@ -115,12 +113,12 @@ def get_avg_sector_rates():
     df.loc[df['MRKCAP_TYPE'] == 'None', 'Conversion'] = df['MRKCAP_AMT'].fillna(value='0')
     df['Conversion'] = df['Conversion'].fillna(value='0')
     df['Conversion'] = df['Conversion'].astype(int)
-    print(df.dtypes)
-    print(sys.maxsize)
-    group_sectors = df.groupby(['SEC_CONV','Conversion'])
     res = df.groupby(['SEC_CONV'])['Conversion'].mean().reset_index()
-    print(res)
-#   res.to_csv(r'c:/development/python\mrkcap.csv')
+    res = res.to_json(orient='columns')
+    res = json.dumps(res)
+    res = res.replace('\\','')
+    res = res.replace('"{','{')
+    res = res.replace('}"','}')
     return res
 
 def get_distinct_sector_listing():
@@ -149,9 +147,6 @@ def get_distinct_sector_listing():
     df = df.SEC_CONV.unique()
     df = json.dumps(df.tolist())
     df.replace('\\','')
-    # Generating Dataframe to JSON
-    # df = df.to_json()
-    # df.replace('\\','')
     return df
 
 def get_industries_by_sector():

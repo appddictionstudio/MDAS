@@ -74,53 +74,53 @@ export class AppComponent {
     //     console.log(symbols);
     // });
 
-    this.weatherService.getWeather().subscribe((results) => {
-      console.log(results);
-      let temp_max = results['list'].map(list => list.temp.max);
-      let temp_min = results['list'].map(list => list.temp.min);
-      let allDates = results['list'].map(list => list.dt);
+    // this.weatherService.getWeather().subscribe((results) => {
+    //   console.log(results);
+    //   let temp_max = results['list'].map(list => list.temp.max);
+    //   let temp_min = results['list'].map(list => list.temp.min);
+    //   let allDates = results['list'].map(list => list.dt);
 
-      let weatherDates = []
-      allDates.forEach((results) => {
-        let jsDate = new Date(results * 1000)
-        weatherDates.push(jsDate.toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric'}))
-      })
-      console.log(temp_max, temp_min, allDates);
-      console.log(weatherDates);
+    //   let weatherDates = []
+    //   allDates.forEach((results) => {
+    //     let jsDate = new Date(results * 1000)
+    //     weatherDates.push(jsDate.toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric'}))
+    //   })
+    //   console.log(temp_max, temp_min, allDates);
+    //   console.log(weatherDates);
 
-      var ctx = document.getElementById('myChart');
-      var myChart = new Chart('ctx', {
-        type: 'line',
-        data: {
-          labels: weatherDates,
-          datasets: [
-            {
-              data: temp_max,
-              borderColor: '#3cba9f',
-              fill: false
-            },
-            {
-              data: temp_min,
-              borderColor: '#ffcc00',
-              fill: false
-            }
-          ]
-        },
-        options: {
-          legend: {
-            display: false
-          },
-          scales: {
-            xAxes: [{
-              display: true
-            }],
-            yAxes: [{
-              display: true
-            }]
-          }
-        }
-      })
-    })
+    //   var ctx = document.getElementById('myChart');
+    //   var myChart = new Chart('ctx', {
+    //     type: 'line',
+    //     data: {
+    //       labels: weatherDates,
+    //       datasets: [
+    //         {
+    //           data: temp_max,
+    //           borderColor: '#3cba9f',
+    //           fill: false
+    //         },
+    //         {
+    //           data: temp_min,
+    //           borderColor: '#ffcc00',
+    //           fill: false
+    //         }
+    //       ]
+    //     },
+    //     options: {
+    //       legend: {
+    //         display: false
+    //       },
+    //       scales: {
+    //         xAxes: [{
+    //           display: true
+    //         }],
+    //         yAxes: [{
+    //           display: true
+    //         }]
+    //       }
+    //     }
+    //   })
+    // })
 
   }
 

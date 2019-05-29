@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// RXJS
+import { map } from 'rxjs/operators';
+
 // Angular Materials
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry, MatDialogRef, MatDialog } from '@angular/material';
@@ -23,8 +26,11 @@ import { FlexOffsetDirective } from '@angular/flex-layout';
 export class CpMainComponent implements OnInit {
   sectorChart: any;
 
+  options = ['AI Analysis', 'Data from API', 'Data from Postgres'];
+
   distinctSectors = []
-  distinctSectorLabels = [];
+  distinctSectorLabels = []
+  distinctSectorData = [];
 
   healthCareIndustries = []
   financeIndustries = []
@@ -58,15 +64,41 @@ export class CpMainComponent implements OnInit {
     iconRegistry.addSvgIcon('basicindustries', sanitizer.bypassSecurityTrustResourceUrl('./assets/svgs/BasicIndustries.svg'));
   }
   ngOnInit() {
+    this.companyService.getSectorAvgs().toPromise().then((getData) => {
+      const convertAPIToString = getData.toString();
+      const convertStringToJSON = JSON.parse(convertAPIToString)
+      console.log(convertStringToJSON);
+      this.distinctSectorLabels.push(convertStringToJSON['SEC_CONV']);
+      this.distinctSectorLabels.map((data) => {
+        this.distinctSectorLabels = [data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]]
+      })
+      console.log(this.distinctSectorLabels);
+      this.distinctSectorData.push(convertStringToJSON['Conversion']);
+      this.distinctSectorData.map((data) => {
+        this.distinctSectorData.push(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9])
+      })
+      console.log(this.distinctSectorData);
+    }).catch((error) => {
+      console.log('Error Occured Obtaining Sector Data', error)
+    })
+
     this.sectorChart = new Chart('sectors', {
       type: 'doughnut',
       data: {
-        labels: ['Sales Q1', 'Sales Q2'],
+        labels: ["Basic Industries", "Capital Goods", "Consumer Industry", "Finance", "Health Care", "Miscellaneous", "No Industry Identified", "Public Utilities", "Technology/Energy", "Transportation"],
         datasets: [{
-          data: [10, 100],
+          data: [75113514.4736842, 91961525.04, 80414268.96, 56359050, 61028234.16, 61347932.329896905, 31625552, 27974124.861538462, 72443885.24, 258053276.85714287],
           backgroundColor: [
             'rgba(255, 99, 132, .6)',
             'rgba(54, 162, 235, .6)',
+            'rgba(242, 234, 119, .6)',
+            'rgba(242, 82, 186, .6)',
+            'rgba(37, 35, 89, .6)',
+            'rgba(191, 3, 53, .6)',
+            'rgba(255, 255, 240, .6)',
+            'rgba(122, 255, 150, .6)',
+            'rgba(255, 215, 71, .6)',
+            'rgba(255, 138, 71, .6)',
           ],
         }],
       },
