@@ -28,7 +28,15 @@ export class CpMainComponent implements OnInit {
   sectorChart;
 
   options = ['AI Analysis from CSV', 'Data from API', 'Data from Postgres'];
-  chartOptions = ['Line', 'Doughnut', 'Pie', 'Bar', 'Scatter', 'Radar'];
+  chartOptions = [
+    'Line', 
+    'Doughnut', 
+    // 'Pie', 
+    'Bar', 
+    // 'Scatter', 
+    'Radar', 
+    'Polar Area'
+  ];
 
   // Sets the chart type
   chartTypeSubscription = new Subscription;
@@ -74,7 +82,7 @@ export class CpMainComponent implements OnInit {
     this.chartTypeSubscription = this.chartTypeObservable.subscribe((getSelectedChart) => {
       this.chartTypeNm = getSelectedChart;
     });
-    this.chartTypeNm = 'doughnut';
+    this.chartTypeNm = 'bar';
 
     this.companyService.getSectorAvgs().toPromise().then((sectorData) => {
       console.log(sectorData);
@@ -139,7 +147,9 @@ export class CpMainComponent implements OnInit {
     Chart.defaults.global.defaultFontSize = 30;
     // Chart.defaults.global.defaultFontStyle = 'bold';
     this.sectorChart = new Chart('sectors', {
+      
       type: this.chartTypeNm,
+      
       data: {
         labels: this.distinctSectorLabels,
         datasets: [{
@@ -160,6 +170,7 @@ export class CpMainComponent implements OnInit {
         }],
       },
       options: {
+        
         legend: {
           display: true,
           position: 'right',
@@ -231,6 +242,10 @@ export class CpMainComponent implements OnInit {
       this.mainCompanyGraphs();
     } else if ($event.value === 'Scatter') {
       this.chartTypeObserver.next('scatter')
+      this.sectorChart.destroy();
+      this.mainCompanyGraphs();
+    } else if ($event.value === 'Polar Area') {
+      this.chartTypeObserver.next('polarArea')
       this.sectorChart.destroy();
       this.mainCompanyGraphs();
     }
