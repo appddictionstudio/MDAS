@@ -27,6 +27,6 @@ export class CompanyService {
   }
 
   getSectorAvgs() {
-    return this.http.get(`${environment.API_URL}/getAvgSectorRates`)
+    return this.http.get(`${environment.API_URL}/getAvgSectorRatesAbr`)
   }
 }

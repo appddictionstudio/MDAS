@@ -76,17 +76,17 @@ export class CpMainComponent implements OnInit {
     });
     this.chartTypeNm = 'doughnut';
 
-    this.companyService.getSectorAvgs().toPromise().then((getData) => {
-      const convertAPIToString = getData.toString();
-      const convertStringToJSON = JSON.parse(convertAPIToString)
-      this.distinctSectorLabels.push(convertStringToJSON['SEC_CONV']);
-      this.distinctSectorLabels.map((data) => {
-        this.distinctSectorLabels = [data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]]
-        // console.log(this.distinctSectorLabels);
-      })
-      this.distinctSectorData.push(convertStringToJSON['Conversion']);
-      this.distinctSectorData.map((data) => {
-        this.distinctSectorData.push(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9])
+    this.companyService.getSectorAvgs().toPromise().then((sectorData) => {
+      // console.log(sectorData);
+      const sectorAvgToString = sectorData.toString();
+      const sectorAvgToJson = JSON.parse(sectorAvgToString);
+      // console.log(sectorAvgToJson);
+      sectorAvgToJson.forEach((eachSector) => {
+        let eachSectorLabel = eachSector['SEC_CONV'];
+        this.distinctSectorLabels.push(eachSectorLabel)
+        let eachSectorData = eachSector['Conversion'];
+        // console.log(eachSector['Conversion'])
+        this.distinctSectorData.push(eachSectorData);
       })
     }).catch((error) => {
       new Error('Error Occured Obtaining Sector Data')
@@ -124,13 +124,15 @@ export class CpMainComponent implements OnInit {
         } else {
           console.log('No Icon Found');
         }
-        console.log(sectors);
+        // console.log(sectors);
       })
       this.distinctSectors = imageType;
     });
   }
 
   mainCompanyGraphs() {
+    console.log('Chart Data', this.distinctSectorData);
+    console.log('Chart Lables', this.distinctSectorLabels)
     Chart.defaults.global.defaultFontColor = '#fff';
     Chart.defaults.global.defaultFontFamily = 'Open Sans, sans-serif;';
     Chart.defaults.global.defaultFontSize = 30;
@@ -138,9 +140,9 @@ export class CpMainComponent implements OnInit {
     this.sectorChart = new Chart('sectors', {
       type: this.chartTypeNm,
       data: {
-        labels: ["Basic Industries", "Capital Goods", "Consumer Industry", "Finance", "Health Care", "Miscellaneous", "No Industry Identified", "Public Utilities", "Technology/Energy", "Transportation"],
+        labels: this.distinctSectorLabels,
         datasets: [{
-          data: [75113514.4736842, 91961525.04, 80414268.96, 56359050, 61028234.16, 61347932.329896905, 31625552, 27974124.861538462, 72443885.24, 258053276.85714287],
+          data: [75.11, 91.96, 80.41, 56.36, 61.03, 61.35, 31.63, 27.97, 72.44, 258.05],
           backgroundColor: [
             'rgba(255, 99, 132, .6)',
             'rgba(54, 162, 235, .6)',

@@ -130,13 +130,13 @@ export class CpSectorsComponent implements OnInit {
           console.log('No Icon Found');
         }
       })
-      console.log('Sector Types', imageType);
+      // console.log('Sector Types', imageType);
       this.distinctSectors = imageType;
       imageType.forEach((data) => {
         this.sectors.push(data.sectordata);
         this.sectorImages.push(data.imageType);
       })
-      console.log(this.sectors);
+      // console.log(this.sectors);
 
     });
     this.industryGraph();
