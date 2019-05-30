@@ -12,7 +12,6 @@ from .entities.entity import Session, engine, Base
 from .entities.calculations import Calculations, CalSchema
 
 # Importing Company Analysis Notebook
-
 ######################################
 # creating the Flask application
 app = Flask(__name__)
