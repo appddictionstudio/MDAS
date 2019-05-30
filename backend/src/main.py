@@ -247,6 +247,7 @@ def get_industries_by_sector():
     # df.replace('\\','')
     return df
 
+
 @app.route('/getAvgSectorRatesAbr')
 def abbrev_sector():
     return jsonify(get_avg_sector_rates_abbrev())
@@ -311,3 +312,4 @@ def pie():
     pie_labels = labels
     pie_values = values
     return render_template('pie_chart.html', title='Bitcoin Monthly Price in USD', max=17000, set=zip(values, labels, colors))
+

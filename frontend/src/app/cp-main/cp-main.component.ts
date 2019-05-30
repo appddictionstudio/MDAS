@@ -77,7 +77,7 @@ export class CpMainComponent implements OnInit {
     this.chartTypeNm = 'doughnut';
 
     this.companyService.getSectorAvgs().toPromise().then((sectorData) => {
-      // console.log(sectorData);
+      console.log(sectorData);
       const sectorAvgToString = sectorData.toString();
       const sectorAvgToJson = JSON.parse(sectorAvgToString);
       // console.log(sectorAvgToJson);
@@ -88,13 +88,14 @@ export class CpMainComponent implements OnInit {
         // console.log(eachSector['Conversion'])
         this.distinctSectorData.push(eachSectorData);
       })
+      this.mainCompanyGraphs();
     }).catch((error) => {
       new Error('Error Occured Obtaining Sector Data')
       console.log('Error Occured Obtaining Sector Data', error)
     })
 
     // Execute Initial Charts
-    this.mainCompanyGraphs();
+    
 
     this.companyService.getDistinctSector().toPromise().then((data) => {
       const stringData = data.toString();
@@ -132,7 +133,7 @@ export class CpMainComponent implements OnInit {
 
   mainCompanyGraphs() {
     console.log('Chart Data', this.distinctSectorData);
-    console.log('Chart Lables', this.distinctSectorLabels)
+    console.log('Chart Lables', this.distinctSectorLabels);
     Chart.defaults.global.defaultFontColor = '#fff';
     Chart.defaults.global.defaultFontFamily = 'Open Sans, sans-serif;';
     Chart.defaults.global.defaultFontSize = 30;
@@ -142,7 +143,8 @@ export class CpMainComponent implements OnInit {
       data: {
         labels: this.distinctSectorLabels,
         datasets: [{
-          data: [75.11, 91.96, 80.41, 56.36, 61.03, 61.35, 31.63, 27.97, 72.44, 258.05],
+          // data: [75.11, 91.96, 80.41, 56.36, 61.03, 61.35, 31.63, 27.97, 72.44, 258.05],
+          data: this.distinctSectorData,
           backgroundColor: [
             'rgba(255, 99, 132, .6)',
             'rgba(54, 162, 235, .6)',
