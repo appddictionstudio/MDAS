@@ -2169,3 +2169,32 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 
 .mat-simple-snackbar-action {
   color: #ffc107; }
+
+
+  /* // ---------------------------------------- */
+
+/* //  Font Family Styles */
+
+@font-face {
+    font-family: openSans;
+    src: url('../assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: openSansSemi;
+    src: url('../assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* // */
+/* // */
+
+* {
+    font-family: 'openSans';
+}
+
+
+
+/* // ---------------------------------------- */
