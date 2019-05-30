@@ -1,7 +1,7 @@
 As a product owner, I need to be able to review data and re-collect all the
 information used for the research.
 
-# MDAS Python Project with iot 
+# MDAS Python Project
 
 ### Cloud Service Provider
 AWS
