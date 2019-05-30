@@ -25,6 +25,7 @@
     "@angular/platform-server": "^8.0.0-rc.4",
     "@angular/router": "^8.0.0-rc.4",
     "chart.js": "^2.8.0",
+    "chartjs-plugin-labels": "^1.1.0",
     "compile-sass": "^0.1.2",
     "core-js": "^2.5.4",
     "ng2-charts": "^2.2.3",

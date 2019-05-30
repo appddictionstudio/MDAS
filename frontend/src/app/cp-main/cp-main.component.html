@@ -1,119 +1,37 @@
-<h1 class="cp-main-heading">Industry Analysis by Sector</h1>
-<div style="display: block; width:800px;">
-    <canvas id="sectors">{{ sectorChart }}</canvas>
-</div>
-<div class="cp-main-grid-container">
-    <div class="cp-main-grid-container__item cp-main-grid-container__item--1">
-        <span class="sector--label">
-            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[0].imageType }}"></mat-icon>
-            {{ distinctSectors[0].sectordata }}
-        </span>
-        <div>
-            <span class="sector--smalllabel">Average Market Cap:</span>
-        </div>
-        <button mat-button class="sector--industrybutton" (click)="openListOfIndustriesForSector(distinctSectors[0].sectordata)">Industries</button>
-    </div>
-    <div class="cp-main-grid-container__item cp-main-grid-container__item--2">
-        <span class="sector--label">
-            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[1].imageType }}"></mat-icon>
-            {{ distinctSectors[1].sectordata }}
-        </span>
-        <div>
-            <span class="sector--smalllabel">Average Market Cap:</span>
-        </div>
-        <button mat-button class="sector--industrybutton">Industries</button>
-    </div>
-    <div class="cp-main-grid-container__item cp-main-grid-container__item--3">
-        <span class="sector--label">
-            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[2].imageType }}"></mat-icon>
-            {{ distinctSectors[2].sectordata }}
-        </span>
-        <div>
-            <span class="sector--smalllabel">Average Market Cap:</span>
-        </div>
-        <button mat-button class="sector--industrybutton">Industries</button>
-    </div>
-    <div class="cp-main-grid-container__item cp-main-grid-container__item--4">
-        <span class="sector--label">
-            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[3].imageType }}"></mat-icon>
-            {{ distinctSectors[3].sectordata }}
-        </span>
-        <div>
-            <span class="sector--smalllabel">Average Market Cap:</span>
-        </div>
-        <button mat-button class="sector--industrybutton">Industries</button>
-    </div>
-    <div class="cp-main-grid-container__item cp-main-grid-container__item--5">
-        <span class="sector--label">
-            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[4].imageType }}"></mat-icon>
-            {{ distinctSectors[4].sectordata }}
-        </span>
-        <div>
-            <span class="sector--smalllabel">Average Market Cap:</span>
-        </div>
-        <button mat-button class="sector--industrybutton">Industries</button>
-    </div>
-    -<div class="cp-main-grid-container__item cp-main-grid-container__item--6">
-        <span class="sector--label">
-            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[5].imageType }}"></mat-icon>
-            {{ distinctSectors[5].sectordata }}
-        </span>
-        <div>
-            <span class="sector--smalllabel">Average Market Cap:</span>
-        </div>
-        <button mat-button class="sector--industrybutton">Industries</button>
-    </div>
-    <div class="cp-main-grid-container__item cp-main-grid-container__item--7">
-        <span class="sector--label">
-            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[6].imageType }}"></mat-icon>
-            {{ distinctSectors[6].sectordata }}
-        </span>
-        <div>
-            <span class="sector--smalllabel">Average Market Cap:</span>
-        </div>
-        <button mat-button class="sector--industrybutton">Industries</button>
-    </div>
-    <div class="cp-main-grid-container__item cp-main-grid-container__item--8">
-        <span class="sector--label">
-            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[7].imageType }}"></mat-icon>
-            {{ distinctSectors[7].sectordata }}
-        </span>
-        <div>
-            <span class="sector--smalllabel">Average Market Cap:</span>
-        </div>
-        <button mat-button class="sector--industrybutton">Industries</button>
-    </div>
-    <div class="cp-main-grid-container__item cp-main-grid-container__item--9">
-        <span class="sector--label">
-            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[8].imageType }}"></mat-icon>
-            {{ distinctSectors[8].sectordata }}
-        </span>
-        <div>
-            <span class="sector--smalllabel">Average Market Cap:</span>
-        </div>
-        <button mat-button class="sector--industrybutton">Industries</button>
-    </div>
-    <div class="cp-main-grid-container__item cp-main-grid-container__item--10">
-        <span class="sector--label">
-            <mat-icon class="sector--labelicons" svgIcon="{{ distinctSectors[9].imageType }}"></mat-icon>
-            {{ distinctSectors[9].sectordata }}
-        </span>
-        <div>
-            <span class="sector--smalllabel">Average Market Cap:</span>
-        </div>
-        <button mat-button class="sector--industrybutton">Industries</button>
-    </div>
-    <div class="cp-main-grid-container__item cp-main-grid-container__item--11">
-        <span class="selector--header">Analytics Selector</span>
+<div class="cp-main-top-container">
+    <div class="cp-main-top-container__item cp-main-top-container__item--1">
+        <span class="sector-heading__label"># of Sectors</span>
         <br>
-        <mat-form-field>
-            <mat-label>Sector</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let option of options">
-                    {{ option }}
+        <span class="sector-heading__data">10</span>
+    </div>
+    <div class="cp-main-top-container__item cp-main-top-container__item--2">
+        <span class="sector-heading__label"># of Industries</span>
+        <br>
+        <span class="sector-heading__data">35</span>
+    </div>
+</div>
+<p style="color:rgb(174, 157, 75); font-size:15px; padding-left: 25px; padding-right: 25px;">As a product owner, I need to be able to review classifications using an infinite scroll
+        HTML web page. The web page shall include data visualization, analysis and insight
+        of sectors and industries with recommended weighting of each company based on
+        10 years of historical data.</p>
+<div class="cp-main-top-level-grid">
+    <div class="cp-main-top-level-grid__item--1">
+        <div class="company-chart-container">
+            <h1 class="cp-main-heading">Average Market Cap by 10 Sectors</h1>
+            <canvas id="sectors">{{ sectorChart }}</canvas>
+        </div>
+    </div>
+    <div class="cp-main-top-level-grid__item--2">
+        <h3 class="chart-selection__heading">Data Breakdown</h3>
+        <mat-form-field style="color:#fff;">
+            <mat-label>Chart Selection</mat-label>
+            <mat-select (selectionChange)="changeAvgMarketCapChart($event)">
+                <mat-option *ngFor="let chartOption of chartOptions" value="{{ chartOption }}">
+                    {{ chartOption }}
                 </mat-option>
             </mat-select>
         </mat-form-field>
     </div>
 </div>
+<app-cp-sectors></app-cp-sectors>
 <app-nav-bottom></app-nav-bottom>
