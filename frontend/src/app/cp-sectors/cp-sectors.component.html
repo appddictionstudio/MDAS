@@ -1,3 +1,179 @@
+<div class="row">
+    <div class="col-3 main-bottom-section" style="float: left; max-height: 660px; overflow-y: scroll;">
+        <span class="selector--header">List of Industries</span>
+        <br>
+        <mat-list role="list" *ngFor="let industry of uniqueIndustries">
+            <mat-list-item role="listitem" style="color:#fff; font-size:13px;">{{ industry }}</mat-list-item>
+        </mat-list>
+    </div>
+    <div class="col-1" style="background: transparent"></div>
+    <div class="col-4 main-bottom-section" style="border-right: 1px solid rgba(0,0,0, .4); max-height: 660px">
+        <div class="row" style="height: 100px;">
+            <div class="col-4">
+                <mat-icon class="sector--labelicons bottom-svg" svgIcon="{{ sectorImages[0] }}"></mat-icon>
+            </div>
+            <div class="col-8">
+                <h3 class="sector--label sector-title bottom-sector-title">
+                    {{ sectors[0] }}
+                </h3>
+                <button mat-button class="sector--industrybutton sector-title-button"
+                    (click)="openListOfIndustriesForSector(sectors[0])">
+                    Companies
+                </button>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row" style="height: 100px;">
+            <div class="col-4">
+                <mat-icon class="sector--labelicons bottom-svg" svgIcon="{{ sectorImages[1] }}"></mat-icon>
+            </div>
+            <div class="col-8">
+                <h3 class="sector--label sector-title">
+                    {{ sectors[1] }}
+                </h3>
+                <button mat-button class="sector--industrybutton sector-title-button"
+                    (click)="openListOfIndustriesForSector(sectors[1])">
+                    Companies
+                </button>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row" style="height: 100px;">
+            <div class="col-4">
+                <mat-icon class="sector--labelicons bottom-svg" svgIcon="{{ sectorImages[2] }}"></mat-icon>
+            </div>
+            <div class="col-8">
+                <h3 class="sector--label sector-title">
+                    {{ sectors[2] }}
+                </h3>
+                <button mat-button class="sector--industrybutton sector-title-button"
+                    (click)="openListOfIndustriesForSector(sectors[2])">
+                    Companies
+                </button>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row" style="height: 100px;">
+            <div class="col-4">
+                <mat-icon class="sector--labelicons bottom-svg" svgIcon="{{ sectorImages[3] }}"></mat-icon>
+            </div>
+            <div class="col-8">
+                <h3 class="sector--label sector-title">
+                    {{ sectors[3] }}
+                </h3>
+                <button mat-button class="sector--industrybutton sector-title-button"
+                    (click)="openListOfIndustriesForSector(sectors[3])">
+                    Companies
+                </button>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row" style="height: 100px;">
+            <div class="col-4">
+                <mat-icon class="sector--labelicons bottom-svg" svgIcon="{{ sectorImages[4] }}"></mat-icon>
+            </div>
+            <div class="col-8">
+                <h3 class="sector--label sector-title">
+                    {{ sectors[4] }}
+                </h3>
+                <button mat-button class="sector--industrybutton sector-title-button"
+                    (click)="openListOfIndustriesForSector(sectors[4])">
+                    Companies
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-4 main-bottom-section" style="max-height: 660px;">
+        <div class="row" style="height: 100px;">
+            <div class="col-4">
+                <mat-icon class="sector--labelicons bottom-svg" svgIcon="{{ sectorImages[5] }}"></mat-icon>
+            </div>
+            <div class="col-8">
+                <h3 class="sector--label sector-title bottom-sector-title">
+                    {{ sectors[5] }}
+                </h3>
+                <button mat-button class="sector--industrybutton sector-title-button"
+                    (click)="openListOfIndustriesForSector(sectors[5])">
+                    Companies
+                </button>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row" style="height: 100px;">
+            <div class="col-4">
+                <mat-icon class="sector--labelicons bottom-svg" svgIcon="{{ sectorImages[6] }}"></mat-icon>
+            </div>
+            <div class="col-8">
+                <h3 class="sector--label sector-title">
+                    {{ sectors[6] }}
+                </h3>
+                <button mat-button class="sector--industrybutton sector-title-button"
+                    (click)="openListOfIndustriesForSector(sectors[6])">
+                    Companies
+                </button>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row" style="height: 100px;">
+            <div class="col-4">
+                <mat-icon class="sector--labelicons bottom-svg" svgIcon="{{ sectorImages[7] }}"></mat-icon>
+            </div>
+            <div class="col-8">
+                <h3 class="sector--label sector-title">
+                    {{ sectors[7] }}
+                </h3>
+                <button mat-button class="sector--industrybutton sector-title-button"
+                    (click)="openListOfIndustriesForSector(sectors[7])">
+                    Companies
+                </button>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row" style="height: 100px;">
+            <div class="col-4">
+                <mat-icon class="sector--labelicons bottom-svg" svgIcon="{{ sectorImages[8] }}"></mat-icon>
+            </div>
+            <div class="col-8">
+                <h3 class="sector--label sector-title">
+                    {{ sectors[8] }}
+                </h3>
+                <button mat-button class="sector--industrybutton sector-title-button"
+                    (click)="openListOfIndustriesForSector(sectors[8])">
+                    Companies
+                </button>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row" style="height: 100px;">
+            <div class="col-4">
+                <mat-icon class="sector--labelicons bottom-svg" svgIcon="{{ sectorImages[9] }}"></mat-icon>
+            </div>
+            <div class="col-8">
+                <h3 class="sector--label sector-title">
+                    {{ sectors[9] }}
+                </h3>
+                <button mat-button class="sector--industrybutton sector-title-button"
+                    (click)="openListOfIndustriesForSector(sectors[9])">
+                    Companies
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
 <div class="cp-main-grid-container">
     <div class="cp-main-grid-container__item cp-main-grid-container__item--1">
         <div class="inside_sector_container">

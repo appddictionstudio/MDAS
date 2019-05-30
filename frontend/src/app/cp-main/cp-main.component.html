@@ -1,37 +1,45 @@
-<div class="cp-main-top-container">
-    <div class="cp-main-top-container__item cp-main-top-container__item--1">
-        <span class="sector-heading__label"># of Sectors</span>
-        <br>
-        <span class="sector-heading__data">10</span>
-    </div>
-    <div class="cp-main-top-container__item cp-main-top-container__item--2">
-        <span class="sector-heading__label"># of Industries</span>
-        <br>
-        <span class="sector-heading__data">35</span>
-    </div>
-</div>
-<p style="color:rgb(174, 157, 75); font-size:15px; padding-left: 25px; padding-right: 25px;">As a product owner, I need to be able to review classifications using an infinite scroll
-        HTML web page. The web page shall include data visualization, analysis and insight
-        of sectors and industries with recommended weighting of each company based on
-        10 years of historical data.</p>
-<div class="cp-main-top-level-grid">
-    <div class="cp-main-top-level-grid__item--1">
-        <div class="company-chart-container">
-            <h1 class="cp-main-heading">Average Market Cap by 10 Sectors</h1>
-            <canvas id="sectors">{{ sectorChart }}</canvas>
+<div class="container">
+    <div class="row my-3">
+        <div class="col-3 sector-container" style="margin-right: 10px;">
+            <span class="sector-heading__label"># of Sectors</span>
+            <br>
+            <span class="sector-heading__data">10</span>
+        </div>
+        <div class="col-3 sector-container">
+            <span class="sector-heading__label"># of Industries</span>
+            <br>
+            <span class="sector-heading__data">35</span>
         </div>
     </div>
-    <div class="cp-main-top-level-grid__item--2">
-        <h3 class="chart-selection__heading">Data Breakdown</h3>
-        <mat-form-field style="color:#fff;">
-            <mat-label>Chart Selection</mat-label>
-            <mat-select (selectionChange)="changeAvgMarketCapChart($event)">
-                <mat-option *ngFor="let chartOption of chartOptions" value="{{ chartOption }}">
-                    {{ chartOption }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+    <div class="row my-3">
+        <p style="color:rgb(174, 157, 75); font-size: 15px;">
+            As a product owner, I need to be able to review classifications using an infinite scroll
+            HTML web page. The web page shall include data visualization, analysis and insight
+            of sectors and industries with recommended weighting of each company based on
+            10 years of historical data.
+        </p>
     </div>
+
+    <div class="cp-main-top-level-grid" style="margin-left: -23px; padding-right: 0; margin-right: -15px;">
+        <div class="cp-main-top-level-grid__item--1">
+            <div class="company-chart-container">
+                <h1 class="cp-main-heading">Average Market Cap by 10 Sectors</h1>
+                <canvas id="sectors">{{ sectorChart }}</canvas>
+            </div>
+        </div>
+        <div class="cp-main-top-level-grid__item--2">
+            <h3 class="chart-selection__heading">Data Breakdown</h3>
+            <mat-form-field style="color:#fff;">
+                <mat-label>Chart Selection</mat-label>
+                <mat-select (selectionChange)="changeAvgMarketCapChart($event)">
+                    <mat-option *ngFor="let chartOption of chartOptions" value="{{ chartOption }}">
+                        {{ chartOption }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <app-cp-sectors></app-cp-sectors>
+    <app-nav-bottom></app-nav-bottom>
 </div>
-<app-cp-sectors></app-cp-sectors>
-<app-nav-bottom></app-nav-bottom>
