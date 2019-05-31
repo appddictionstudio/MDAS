@@ -1,0 +1,42 @@
+version: '3.3'
+services:
+
+  db:
+    # we use the mysql base image, version 5.6.36
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: mdas
+      POSTGRES_USER: postgres
+      POSTGRES_DB: pythondb
+    ports:
+      - "5432:5432"
+    networks:
+      mynetwork:
+        aliases:
+          - web1.internal.prod.example.com
+  web:
+    build:
+      context: ./docker/web/
+      dockerfile: Dockerfile
+    user: root
+    depends_on:
+      - db
+    links: 
+      - "db:database"
+    volumes:
+      - ./:/var/www/html/
+    # command: bash -c "composer install --no-interaction"
+    ports:
+      - "80:80"
+    environment: []
+    # command: php bin/cake.php
+    restart: unless-stopped
+    networks:
+      mynetwork:
+        aliases:
+          - web1.internal.prod.example.com
+
+networks:
+  mynetwork:
+    driver: bridge
