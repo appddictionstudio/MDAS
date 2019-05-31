@@ -27,7 +27,7 @@ export class CpIndustriesComponent implements OnInit {
     console.log(this.industries);
   }
 
-  openNewsDialog() {
+  openNewsDialog(tickerSymbol) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.autoFocus = true;
@@ -36,7 +36,7 @@ export class CpIndustriesComponent implements OnInit {
 
     dialogConfig.data = {
       id: 1,
-      title: "Angular For Beginners"
+      ticker: tickerSymbol
     };
 
     this.dialog.open(CpNewsComponent, dialogConfig);

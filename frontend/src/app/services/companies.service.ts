@@ -7,6 +7,7 @@ import { catchError } from 'rxjs/operators';
 
 // Environment
 import { environment } from '../../environments/environment';
+import { tick } from '@angular/core/testing';
 
 @Injectable()
 export class CompanyService {
@@ -31,7 +32,7 @@ export class CompanyService {
     return this.http.get(`${environment.API_URL}/getAvgSectorRatesAbr`);
   }
 
-  getNews() {
-    return this.http.get(`${environment.API_URL}/news`);
+  getNews(ticker: string) {
+    return this.http.get(`${environment.API_URL}/news/` + ticker);
   }
 }
