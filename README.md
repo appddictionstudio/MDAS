@@ -136,3 +136,11 @@ CI/CD
     pipeline. Rather than redeploying the application to a new environment the
     entire environment could be promoted without the need for even a virtual
     handoff.
+    
+Local Development
+-----
+ To run locally for development, pull the github repo. 
+ Start the backend server
+ Go to the backend directory and type ./boostrap.sh to start the bash script which initiate the flask Web Framework
+ Start the frontend server
+ Go to the frontend directory and type npm install to get all dependencies required to run the appliation. This pulls from the package.json file. Then run the command ng server. 
