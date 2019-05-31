@@ -22,9 +22,9 @@
         overflow-x: hidden;">
         <section matSort class="mat-header-row row"
                 style="margin-left: 0px;margin-right: 0px; margin-bottom: 10px; background: rgba(135, 156, 169, 0.5); height: 40px; padding-top: 10px;">
-                <span class="mat-header-cell col" style="padding-left: 20px;" mat-sort-header="name">Abbreviation</span>
-                <span class="mat-header-cell col" style="padding-left: 0px;" mat-sort-header="vehicle">Name</span>
-                <span class="mat-header-cell col" style="padding-left: 0px;" mat-sort-header="vinReg">Year</span>
+                <span class="mat-header-cell col" style="padding-left: 20px;" mat-sort-header="name">Symbols</span>
+                <span class="mat-header-cell col" style="padding-left: 0px;" mat-sort-header="vehicle">Company</span>
+                <span class="mat-header-cell col" style="padding-left: 0px;" mat-sort-header="vinReg">IPOYear</span>
                 <span class="mat-header-cell col" style="padding-left: 0px;" mat-sort-header="name">Sector</span>
         </section>
         <!-- <div *ngFor="let industry of industries" style="width: 100%;display: flex;flex-wrap: nowrap;align-items: end;"> -->
@@ -47,11 +47,11 @@
                 <section class="mat-header-row row">
                         
                         <span class="mat-header-cell col">
-                                <label>Label</label>
+                                <label>Last Price</label>
                                 <h3>{{ industry[2] }}</h3>
                         </span>
                         <span class="mat-header-cell col">
-                                <label>Revenue</label>
+                                <label>Market Cap</label>
                                 <h3>{{ industry[3] }}</h3>
                         </span>
                         
