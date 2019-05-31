@@ -48,6 +48,7 @@ export class CpMainComponent implements OnInit {
   distinctSectors = []
   distinctSectorLabels = []
   distinctSectorData = [];
+  avgSectorData = [];
 
   healthCareIndustries = []
   financeIndustries = []
@@ -88,7 +89,8 @@ export class CpMainComponent implements OnInit {
       console.log(sectorData);
       const sectorAvgToString = sectorData.toString();
       const sectorAvgToJson = JSON.parse(sectorAvgToString);
-      // console.log(sectorAvgToJson);
+      this.avgSectorData = sectorAvgToJson;
+      console.log(this.avgSectorData);
       sectorAvgToJson.forEach((eachSector) => {
         let eachSectorLabel = eachSector['SEC_CONV'];
         this.distinctSectorLabels.push(eachSectorLabel)
