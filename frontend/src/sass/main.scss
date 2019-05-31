@@ -16,3 +16,6 @@
 @import "../themes/theme";
 @include mat-core();
 @include angular-material-theme($my-theme);
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
