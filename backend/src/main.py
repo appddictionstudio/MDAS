@@ -303,7 +303,7 @@ def get_avg_industry_rates():
     return 
     
 
-def get_stock_news():
+def get_stock_newsXignite():
     stock_news_api = "https://globalnews.xignite.com/xGlobalNews.json/GetHistoricalReleasesBySecurity?IdentifierType=Symbol&Identifier=AMZN&StartDate=3/30/2012&EndDate=4/29/2014&_token=A5E76A2302A34641ACEE4741C68D4EFC"
     resp = requests.get(stock_news_api)
     if resp.status_code == 200:
@@ -316,6 +316,23 @@ def get_stock_news():
         return data
     else:
         print("API did not pull any data from globalnews.xignite.com")
+
+
+
+def get_stock_news():
+    stock_news_api = "https://stocknewsapi.com/api/v1?tickers=AMZN&items=50&type=article&token=qqygybi5zike7wfmu21lawdnfndqhhi53ndszk83"
+    resp = requests.get(stock_news_api)
+    if resp.status_code == 200:
+        print(resp.status_code)
+        data = resp.json()
+        data = data['data']
+        df4 = pd.DataFrame.from_dict(data, orient='columns')
+#         df4.columns = ['DATE', 'IMG_URL', 'NEWS_URL', 'Sentiment', 'Source_Name', 'Tags', 'Text', 'SYM']
+        # df = json.dumps(df4)
+        return data
+    else:
+        print("API did not pull any data from stocknewsapi.com")
+
 
 @app.route('/getAvgIndustryRates')
 def abbrev_industry():
@@ -341,6 +358,10 @@ def get_industries_with_sectros():
 @app.route('/news')
 def get_news():
     return jsonify(get_stock_news())
+
+@app.route('/newsXignite')
+def get_newsXignite():
+    return jsonify(get_stock_newsXignite())
 
 @app.route('/calculations')
 def get_exams():

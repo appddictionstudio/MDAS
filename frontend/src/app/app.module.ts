@@ -11,7 +11,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 
 // Angular Material and Animations 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatTableModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -38,6 +38,7 @@ import { AboutComponent } from './about/about.component';
 import { CpIndustriesComponent } from './cp-industries/cp-industries.component';
 import { MatSelectModule } from '@angular/material/select';
 import { CpSectorsComponent } from './cp-sectors/cp-sectors.component';
+import { CpNewsComponent } from './cp-news/cp-news.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CpSectorsComponent } from './cp-sectors/cp-sectors.component';
     NavBottomComponent,
     AboutComponent,
     CpIndustriesComponent,
-    CpSectorsComponent
+    CpSectorsComponent,
+    CpNewsComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +63,7 @@ import { CpSectorsComponent } from './cp-sectors/cp-sectors.component';
     MatListModule,
     MatExpansionModule,
     CdkTableModule,
+    MatTableModule,
     MatMenuModule,
     FlexLayoutModule,
     MatButtonToggleModule,
@@ -70,6 +73,6 @@ import { CpSectorsComponent } from './cp-sectors/cp-sectors.component';
   ],
   providers: [CalculationsService, WeatherService, CompanyService],
   bootstrap: [AppComponent],
-  entryComponents: [CpIndustriesComponent]
+  entryComponents: [CpIndustriesComponent, CpNewsComponent]
 })
 export class AppModule { }
