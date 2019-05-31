@@ -125,6 +125,8 @@ Deploying Solution
     “Enter”. This will begin the infrastructure deployment. Once the script
     completes an entire environment has been deployed to AWS supporting the
     entire application from database to RESTful API to Angular front-end.
+7.    In a browser navigate to your AWS console EC2 instance list and select the instance with the name “mdas docker host”. Select and copy the Public DNS (IPv4) value. It should look something like: ec2-13-58-54-21.us-east-2.compute.amazonaws.com.
+8.    Place the value just copied into a web browser address bar and click enter.
 
 CI/CD
 -----
