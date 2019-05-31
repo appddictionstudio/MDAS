@@ -146,7 +146,6 @@ export class CpMainComponent implements OnInit {
     Chart.defaults.global.defaultFontSize = 30;
     // Chart.defaults.global.defaultFontStyle = 'bold';
     this.sectorChart = new Chart('sectors', {
-      
       type: this.chartTypeNm,
       
       data: {
