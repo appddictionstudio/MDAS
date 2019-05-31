@@ -319,8 +319,8 @@ def get_stock_newsXignite():
 
 
 
-def get_stock_news():
-    stock_news_api = "https://stocknewsapi.com/api/v1?tickers=AMZN&items=50&type=article&token=qqygybi5zike7wfmu21lawdnfndqhhi53ndszk83"
+def get_stock_news(ticker):
+    stock_news_api = "https://stocknewsapi.com/api/v1?tickers=" + ticker + "&items=50&type=article&token=qqygybi5zike7wfmu21lawdnfndqhhi53ndszk83"
     resp = requests.get(stock_news_api)
     if resp.status_code == 200:
         print(resp.status_code)
@@ -355,9 +355,9 @@ def get_distinct_sectors():
 def get_industries_with_sectros():
     return jsonify(get_industries_by_sector())
 
-@app.route('/news')
-def get_news():
-    return jsonify(get_stock_news())
+@app.route('/news/<ticker>')
+def get_news(ticker):
+    return jsonify(get_stock_news(ticker))
 
 @app.route('/newsXignite')
 def get_newsXignite():
