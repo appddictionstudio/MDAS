@@ -6,9 +6,6 @@ information used for the research.
 ### Cloud Service Provider
 AWS
 
-### External Device Association
-Raspberry pi 
-
 ### Frontend Environment
 - Angular 9
 - Chart.js
