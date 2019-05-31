@@ -21,6 +21,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonToggleModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 // Charts
 import { ChartsModule } from 'ng2-charts';
@@ -58,6 +59,7 @@ import { CpSectorsComponent } from './cp-sectors/cp-sectors.component';
     MatButtonModule,
     MatIconModule,
     MatListModule,
+    MatExpansionModule,
     CdkTableModule,
     MatMenuModule,
     FlexLayoutModule,

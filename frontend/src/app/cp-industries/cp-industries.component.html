@@ -1,13 +1,62 @@
-<p style="color:rgb(174, 157, 75); font-size:15px;">As a product owner, I need to be able to generate a list of 10 sectors and no more
+<p style="color:rgb(174, 157, 75); font-size:15px;">As a product owner, I need to be able to generate a list of 10
+        sectors and no more
         than 100 industries classifications group under the sectors with related companies
         weighting from collected data by running no more than two commands.</p>
 <h3 class="industries_container__heading">Sector Industries</h3>
-<div class="industrycontainer" *ngFor="let industry of industries">
-<div class="industrycontainer__item industrycontainer__item--1">{{ industry[0] }}</div>
-<div class="industrycontainer__item industrycontainer__item--2">{{ industry[1] }}</div>
-<div class="industrycontainer__item industrycontainer__item--3">{{ industry[2] }}</div>
-<div class="industrycontainer__item industrycontainer__item--4">{{ industry[3] }}</div>
-<div class="industrycontainer__item industrycontainer__item--5">{{ industry[4] }}</div>
-<div class="industrycontainer__item industrycontainer__item--6">{{ industry[5] }}</div>
-<!-- <div class="industrycontainer__item industrycontainer__item--6"></div> -->
-</div>
+
+
+
+
+
+<!-- <div class="industrycontainer" *ngFor="let industry of industries">
+        <div class="industrycontainer__item industrycontainer__item--1">{{ industry[0] }}</div>
+        <div class="industrycontainer__item industrycontainer__item--2">{{ industry[1] }}</div>
+        <div class="industrycontainer__item industrycontainer__item--3">{{ industry[2] }}</div>
+        <div class="industrycontainer__item industrycontainer__item--4">{{ industry[3] }}</div>
+        <div class="industrycontainer__item industrycontainer__item--5">{{ industry[4] }}</div>
+        <div class="industrycontainer__item industrycontainer__item--6">{{ industry[5] }}</div>
+        <div class="industrycontainer__item industrycontainer__item--6"></div>
+</div> -->
+
+<mat-accordion displayMode="flat" multi class="mat-table" style="overflow-y: scroll; border-radius: 0px !important;
+        overflow-x: hidden;">
+        <section matSort class="mat-header-row row"
+                style="margin-left: 0px;margin-right: 0px; margin-bottom: 10px; background: rgba(135, 156, 169, 0.5); height: 40px; padding-top: 10px;">
+                <span class="mat-header-cell col" style="padding-left: 20px;" mat-sort-header="name">Abbreviation</span>
+                <span class="mat-header-cell col" style="padding-left: 0px;" mat-sort-header="vehicle">Name</span>
+                <span class="mat-header-cell col" style="padding-left: 0px;" mat-sort-header="vinReg">Year</span>
+                <span class="mat-header-cell col" style="padding-left: 0px;" mat-sort-header="name">Sector</span>
+        </section>
+        <!-- <div *ngFor="let industry of industries" style="width: 100%;display: flex;flex-wrap: nowrap;align-items: end;"> -->
+        <mat-expansion-panel *ngFor="let industry of industries" style="border-radius: 6px !important; width:100%; margin-bottom: 10px; background-color: #ced8e1 !important;">
+                <mat-expansion-panel-header collapsedHeight="60px" class="row">
+                        <span class="mat-cell col">
+                                {{ industry[0] }}
+                        </span>
+                        <span class="mat-cell col">
+                                {{ industry[1] }}
+                        </span>
+                        <span class="mat-cell col">
+                                {{ industry[4] }}
+                        </span>
+                        <span class="mat-cell col">
+                                {{ industry[5] }}
+                        </span>
+                </mat-expansion-panel-header>
+                <hr>
+                <section class="mat-header-row row">
+                        
+                        <span class="mat-header-cell col">
+                                <label>Label</label>
+                                <h3>{{ industry[2] }}</h3>
+                        </span>
+                        <span class="mat-header-cell col">
+                                <label>Revenue</label>
+                                <h3>{{ industry[3] }}</h3>
+                        </span>
+                        
+                </section>
+
+        </mat-expansion-panel>
+        <!-- </div> -->
+</mat-accordion>

@@ -10,11 +10,11 @@ export class CpIndustriesComponent implements OnInit {
   industries = [];
 
   constructor(public dialogRef: MatDialogRef<CpIndustriesComponent>,
-              @Inject(MAT_DIALOG_DATA)
-              public data: any,
+    @Inject(MAT_DIALOG_DATA)
+    public data: any,
   ) { }
 
-  
+
   ngOnInit() {
     this.industries = this.data.industryData;
     console.log(this.industries)
