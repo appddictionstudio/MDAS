@@ -52,7 +52,7 @@ resource "aws_security_group" "mdas" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/16"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # outbound internet access
@@ -66,7 +66,7 @@ resource "aws_security_group" "mdas" {
 
 resource "aws_instance" "docker_host" {
   ami           = "ami-0ebbf2179e615c338"
-  instance_type = "t2.micro"
+  instance_type = "t2.large"
   tags = {Name = "mdas docker host"}
   subnet_id = "${aws_subnet.mdas.id}"
 #   security_groups = ["${aws_security_group.mdas.id}"]
@@ -92,6 +92,7 @@ resource "aws_instance" "docker_host" {
         "sudo chmod +x /usr/local/bin/docker-compose",
         "docker-compose version",
         "mkdir ~/mdas",
+        "mkdir ~/mdas/infrastructure",
         # "scp -o StrictHostKeyChecking=no -r ../../. ec2-user@${self.public_ip}:~/mdas"
     #   "sudo yum -y install python3",
     #   "sudo"
@@ -140,7 +141,48 @@ resource "aws_instance" "docker_host" {
         private_key = "${file(var.private_key_path)}"
     }
 
-    source      = "../../docker"
-    destination = "~/mdas"
+    source      = "../../infrastructure/docker"
+    destination = "~/mdas/infrastructure/docker"
+  }
+
+  provisioner "file" {
+    connection {
+        user = "ec2-user"
+        host = self.public_ip
+        private_key = "${file(var.private_key_path)}"
+    }
+
+    source      = "../../docker-compose.yml"
+    destination = "~/mdas/docker-compose.yml"
+  }
+
+  provisioner "remote-exec" {
+    connection {
+        user = "ec2-user"
+        host = self.public_ip
+        private_key = "${file(var.private_key_path)}"
+    }
+
+    inline = [
+        # "sudo curl  https://download.docker.com/linux/centos/docker-ce.repo -o /etc/yum.repos.d/docker-ce.repo",
+        "cd ~/mdas",
+        "docker-compose build",
+        "nohup docker-compose up &",
+        "sleep 1"
+        # "sudo amazon-linux-extras install -y docker",
+        # "sudo service docker start",
+        # "sudo usermod -a -G docker ec2-user",
+        # "sudo chkconfig docker on",
+        # "sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose",
+        # "sudo chmod +x /usr/local/bin/docker-compose",
+        # "docker-compose version",
+        # "mkdir ~/mdas",
+        # "mkdir ~/mdas/infrastructure",
+        # "scp -o StrictHostKeyChecking=no -r ../../. ec2-user@${self.public_ip}:~/mdas"
+    #   "sudo yum -y install python3",
+    #   "sudo"
+    #   "sudo apt-get -y install nginx",
+    #   "sudo service nginx start",
+    ]
   }
 }

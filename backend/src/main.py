@@ -3,9 +3,9 @@
 from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 import pandas as pd
+import requests
 import numpy as np
 import json
-# import requests
 import sys
 
 from .entities.entity import Session, engine, Base
@@ -300,7 +300,22 @@ def get_avg_industry_rates():
     res = res.replace('\\','')
 #   res = res.replace('"{','{')
     #res = res.replace('}"','}')
-    return res
+    return 
+    
+
+def get_stock_news():
+    stock_news_api = "https://globalnews.xignite.com/xGlobalNews.json/GetHistoricalReleasesBySecurity?IdentifierType=Symbol&Identifier=AMZN&StartDate=3/30/2012&EndDate=4/29/2014&_token=A5E76A2302A34641ACEE4741C68D4EFC"
+    resp = requests.get(stock_news_api)
+    if resp.status_code == 200:
+        print(resp.status_code)
+        data = resp.json()
+        data = data['Headlines']
+        df4 = pd.DataFrame.from_dict(data, orient='columns')
+#         df4.columns = ['DATE', 'IMG_URL', 'NEWS_URL', 'Sentiment', 'Source_Name', 'Tags', 'Text', 'SYM']
+        # df = json.dumps(df4)
+        return data
+    else:
+        print("API did not pull any data from globalnews.xignite.com")
 
 @app.route('/getAvgIndustryRates')
 def abbrev_industry():
@@ -322,6 +337,10 @@ def get_distinct_sectors():
 @app.route('/distinctSectorsWithIndustries')
 def get_industries_with_sectros():
     return jsonify(get_industries_by_sector())
+
+@app.route('/news')
+def get_news():
+    return jsonify(get_stock_news())
 
 @app.route('/calculations')
 def get_exams():
