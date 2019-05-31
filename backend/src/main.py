@@ -247,6 +247,65 @@ def get_industries_by_sector():
     # df.replace('\\','')
     return df
 
+def get_avg_industry_rates():
+    sub = ''
+    cols_to_use = [0,1,2,3,4,5,6,7]
+    csv_file_path = "../assets/companylist.csv"
+    df = pd.read_csv(csv_file_path, 
+        usecols= cols_to_use,
+        encoding='utf-8'
+        )
+    df['IPOyear'] = df['IPOyear'].astype(str)
+    df['IPOyear'] = df['IPOyear'].str.strip('.0')
+    df = df.rename(index=str, columns = {"Symbol": "SYM", "Name": "CO.", "LastSale": "LP", "MarketCap": "MRKCAP", "IPOyear": "YR", "Sector": "SEC", "industry": "IND", "Summary Quote": "SUMQTE"})
+    df['SYM'] = df['SYM'].str.strip()
+    df['IND'] = df['IND'].str.strip()
+    
+    df['IND_CONV'] = np.where(df['IND']=="Natural Gas Distribution", 'Major Pharmaceuticals', df['IND'])
+    df['IND_CONV'] = np.where(df['IND']=="Textiles", 'Major Banks', df['IND'])
+    df['IND_CONV'] = np.where(df['IND']=='Consumer Services', 'Consumer Industry', df['IND'])
+    df["IND"] = df["IND"].replace("Empty", "No Industry Identified")
+    df["IND_CONV"] = df["IND_CONV"].replace("n/a", "No Industry Identified")
+    df["IND_CONV"] = df["IND_CONV"].replace("Other Specialty Stores", "Special Stores")
+    df["IND_CONV"] = df["IND_CONV"].replace("Biotechnology: Laboratory Analytical Instruments", "BioTech")
+    df["IND_CONV"] = df["IND_CONV"].replace("Medical/Dental Instruments", "Medical")
+    df["IND_CONV"] = df["IND_CONV"].replace("Business Services", "Business")
+    df = df.groupby('IND_CONV').head(100)
+    df = df.iloc[:, [8,3]]
+    
+    df['MRKCAP'] = df['MRKCAP'].replace('n/a','')
+    df['MRKCAP'] = df['MRKCAP'].replace(r'^\s*$', np.nan, regex=True)
+    df['MRKCAP'] = df['MRKCAP'].str.replace('$', '')
+    df['MRKCAP'] = df['MRKCAP'].str.replace(',', '')
+    df['MRKCAP'] = df['MRKCAP'].str.replace('M', ' M')
+    df['MRKCAP'] = df['MRKCAP'].str.replace('B', ' B')
+    df['IND_CONV'] = df['IND_CONV'].fillna(value='No Industry Identified')
+    df['MRKCAP'] = df['MRKCAP'].fillna(value='0 D')
+    df.dropna(inplace = True)
+    
+    df[['MRKCAP_AMT','MRKCAP_TYPE']] = df.MRKCAP.str.split(" ",expand=True,)
+    millions = df['MRKCAP_AMT'].str.replace('.', '').fillna(value='0').astype(int).multiply(other = 100, fill_value = 5)
+    billions = df['MRKCAP_AMT'].str.replace('.', '').fillna(value='0').astype(int).multiply(other = 1000000, fill_value = 5)
+    df.loc[df['MRKCAP_TYPE'] == 'M', 'Conversion'] = millions
+    df.loc[df['MRKCAP_TYPE'] == 'B', 'Conversion'] = billions
+    df.loc[df['MRKCAP_TYPE'] == 'D', 'Conversion'] = 0
+    df.loc[df['MRKCAP_TYPE'] == 'None', 'Conversion'] = df['MRKCAP_AMT'].fillna(value='0')
+    df['Conversion'] = df['Conversion'].fillna(value='0')
+    df['Conversion'] = df['Conversion'].astype(int)
+    res = df.groupby(['IND_CONV'])['Conversion'].mean().reset_index()
+    for x in range (0, len(res['Conversion'])):
+        res ['Conversion'][x] = tokmb(res ['Conversion'][x])
+    res = res.to_json(orient='records')
+    res = json.dumps(res)
+    res = res.replace('\\','')
+#   res = res.replace('"{','{')
+    #res = res.replace('}"','}')
+    return res
+
+@app.route('/getAvgIndustryRates')
+def abbrev_industry():
+    return jsonify(get_avg_industry_rates())
+
 @app.route('/getAvgSectorRatesAbr')
 def abbrev_sector():
     return jsonify(get_avg_sector_rates_abbrev())

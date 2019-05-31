@@ -89,8 +89,7 @@ export class CpMainComponent implements OnInit {
         this.distinctSectorData.push(eachSectorData);
       })
     }).catch((error) => {
-      new Error('Error Occured Obtaining Sector Data')
-      console.log('Error Occured Obtaining Sector Data', error)
+      console.log(error);
     })
 
     // Execute Initial Charts
@@ -131,8 +130,8 @@ export class CpMainComponent implements OnInit {
   }
 
   mainCompanyGraphs() {
-    console.log('Chart Data', this.distinctSectorData);
-    console.log('Chart Lables', this.distinctSectorLabels)
+    // console.log('Chart Data', this.distinctSectorData);
+    // console.log('Chart Lables', this.distinctSectorLabels)
     Chart.defaults.global.defaultFontColor = '#fff';
     Chart.defaults.global.defaultFontFamily = 'Open Sans, sans-serif;';
     Chart.defaults.global.defaultFontSize = 30;
