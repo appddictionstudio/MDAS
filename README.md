@@ -1,3 +1,5 @@
+![Image of Arch.](https://github.com/appddictionstudio/MDAS/blob/master/main/MDAS.png)
+
 As a product owner, I need to be able to review data and re-collect all the
 information used for the research.
 
