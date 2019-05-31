@@ -36,6 +36,7 @@ import { NavBottomComponent } from './nav-bottom/nav-bottom.component';
 import { AboutComponent } from './about/about.component';
 import { CpIndustriesComponent } from './cp-industries/cp-industries.component';
 import { MatSelectModule } from '@angular/material/select';
+import { CpSectorsComponent } from './cp-sectors/cp-sectors.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MatSelectModule } from '@angular/material/select';
     CpMainComponent,
     NavBottomComponent,
     AboutComponent,
-    CpIndustriesComponent
+    CpIndustriesComponent,
+    CpSectorsComponent
   ],
   imports: [
     BrowserModule,

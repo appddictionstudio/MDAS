@@ -25,4 +25,8 @@ export class CompanyService {
   getSectorAndIndustryData(){
     return this.http.get(`${environment.API_URL}/distinctSectorsWithIndustries`)
   }
+
+  getSectorAvgs() {
+    return this.http.get(`${environment.API_URL}/getAvgSectorRatesAbr`)
+  }
 }

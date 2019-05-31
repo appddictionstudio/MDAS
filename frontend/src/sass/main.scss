@@ -7,9 +7,15 @@
 @import './components/cp-main';
 @import './components/nav-bottom';
 @import './components/cp-industry';
+@import './components/helper';
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
 // Theme
 // @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import "../themes/theme";
 @include mat-core();
 @include angular-material-theme($my-theme);
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';

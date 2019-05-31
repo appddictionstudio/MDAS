@@ -1,0 +1,26 @@
+{
+    "SEC_CONV": {
+        "0": "Basic Industries",
+        "1": "Capital Goods",
+        "2": "Consumer Industry",
+        "3": "Finance",
+        "4": "Health Care",
+        "5": "Miscellaneous",
+        "6": "No Industry Identified",
+        "7": "Public Utilities",
+        "8": "Technology/Energy",
+        "9": "Transportation"
+    },
+    "Conversion": {
+        "0": 75113514.4736842066,
+        "1": 91961525.0400000066,
+        "2": 80414268.9599999934,
+        "3": 56359050.0,
+        "4": 61028234.1599999964,
+        "5": 61347932.3298969045,
+        "6": 31625552.0,
+        "7": 27974124.8615384623,
+        "8": 72443885.2399999946,
+        "9": 258053276.8571428657
+    }
+}

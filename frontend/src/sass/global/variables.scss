@@ -4,10 +4,41 @@ $accent1: #FF4449;
 $accent2: #FFC7AB;
 $accent3: #FFEBDB;
 
-$largeLabel: 'Open Sans', sans-serif;
+// Font : #73879C
 
+$largeLabel: 'Open Sans', sans-serif;
+// $largeLabel: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
 body{
     background-color:$primary;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
+
+
+// ----------------------------------------
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+//  Font Family Styles
+
+@font-face {
+    font-family: 'openSans';
+    src: url('../assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'openSansSemi';
+    src: url('../assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//
+//
+
+p {
+    font-family: 'openSans';
+}
+
+// ----------------------------------------

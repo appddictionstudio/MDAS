@@ -1,10 +1,10 @@
-# MDAS Python Project with iot 
+As a product owner, I need to be able to review data and re-collect all the
+information used for the research.
+
+# MDAS Data Science Factor 2
 
 ### Cloud Service Provider
 AWS
-
-### External Device Association
-Raspberry pi 
 
 ### Frontend Environment
 - Angular 9

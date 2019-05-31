@@ -1,14 +1,21 @@
-.toolbar-container--name {
-    margin-top: 4px;
-    font-family:  'openSans'
-}
-.mdas-title {
-    letter-spacing: 3px;
+.main-bottom-section {
+    background: rgba(135, 156, 169, 0.31);
 }
 
+.bottom-sector-title {
+    margin-top: 10px;
+}
 
+.sector-title-button {
+   
+}
 
-/* -----------------SCROLLBAR--------------------- */
+.bottom-svg {
+    height: 90px;
+}
+
+/* ------------------SCROLLBAR------------------ */
+
 ::-webkit-scrollbar {
     width: 8px;
   }
