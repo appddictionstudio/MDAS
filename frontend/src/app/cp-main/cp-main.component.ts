@@ -28,7 +28,15 @@ export class CpMainComponent implements OnInit {
   sectorChart;
 
   options = ['AI Analysis from CSV', 'Data from API', 'Data from Postgres'];
-  chartOptions = ['Line', 'Doughnut', 'Pie', 'Bar', 'Scatter', 'Radar'];
+  chartOptions = [
+    'Line', 
+    'Doughnut', 
+    // 'Pie', 
+    'Bar', 
+    // 'Scatter', 
+    'Radar', 
+    'Polar Area'
+  ];
 
   // Sets the chart type
   chartTypeSubscription = new Subscription;
@@ -74,10 +82,10 @@ export class CpMainComponent implements OnInit {
     this.chartTypeSubscription = this.chartTypeObservable.subscribe((getSelectedChart) => {
       this.chartTypeNm = getSelectedChart;
     });
-    this.chartTypeNm = 'doughnut';
+    this.chartTypeNm = 'bar';
 
     this.companyService.getSectorAvgs().toPromise().then((sectorData) => {
-      // console.log(sectorData);
+      console.log(sectorData);
       const sectorAvgToString = sectorData.toString();
       const sectorAvgToJson = JSON.parse(sectorAvgToString);
       // console.log(sectorAvgToJson);
@@ -88,12 +96,13 @@ export class CpMainComponent implements OnInit {
         // console.log(eachSector['Conversion'])
         this.distinctSectorData.push(eachSectorData);
       })
+      this.mainCompanyGraphs();
     }).catch((error) => {
       console.log(error);
     })
 
     // Execute Initial Charts
-    this.mainCompanyGraphs();
+    
 
     this.companyService.getDistinctSector().toPromise().then((data) => {
       const stringData = data.toString();
@@ -130,18 +139,21 @@ export class CpMainComponent implements OnInit {
   }
 
   mainCompanyGraphs() {
-    // console.log('Chart Data', this.distinctSectorData);
-    // console.log('Chart Lables', this.distinctSectorLabels)
+    console.log('Chart Data', this.distinctSectorData);
+    console.log('Chart Lables', this.distinctSectorLabels);
     Chart.defaults.global.defaultFontColor = '#fff';
     Chart.defaults.global.defaultFontFamily = 'Open Sans, sans-serif;';
     Chart.defaults.global.defaultFontSize = 30;
     // Chart.defaults.global.defaultFontStyle = 'bold';
     this.sectorChart = new Chart('sectors', {
+      
       type: this.chartTypeNm,
+      
       data: {
         labels: this.distinctSectorLabels,
         datasets: [{
-          data: [75.11, 91.96, 80.41, 56.36, 61.03, 61.35, 31.63, 27.97, 72.44, 258.05],
+          // data: [75.11, 91.96, 80.41, 56.36, 61.03, 61.35, 31.63, 27.97, 72.44, 258.05],
+          data: this.distinctSectorData,
           backgroundColor: [
             'rgba(255, 99, 132, .6)',
             'rgba(54, 162, 235, .6)',
@@ -157,6 +169,7 @@ export class CpMainComponent implements OnInit {
         }],
       },
       options: {
+        
         legend: {
           display: true,
           position: 'right',
@@ -228,6 +241,10 @@ export class CpMainComponent implements OnInit {
       this.mainCompanyGraphs();
     } else if ($event.value === 'Scatter') {
       this.chartTypeObserver.next('scatter')
+      this.sectorChart.destroy();
+      this.mainCompanyGraphs();
+    } else if ($event.value === 'Polar Area') {
+      this.chartTypeObserver.next('polarArea')
       this.sectorChart.destroy();
       this.mainCompanyGraphs();
     }

@@ -306,6 +306,7 @@ def get_avg_industry_rates():
 def abbrev_industry():
     return jsonify(get_avg_industry_rates())
 
+
 @app.route('/getAvgSectorRatesAbr')
 def abbrev_sector():
     return jsonify(get_avg_sector_rates_abbrev())
@@ -370,3 +371,4 @@ def pie():
     pie_labels = labels
     pie_values = values
     return render_template('pie_chart.html', title='Bitcoin Monthly Price in USD', max=17000, set=zip(values, labels, colors))
+
