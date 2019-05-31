@@ -20,6 +20,8 @@ RUN pipenv install --dev
 # RUN ./bootstrap.sh &
 
 # RUN export FLASK_APP=./src/main.py && FLASK_RUN_PORT=8050 && flask run -h 127.0.0.1
-RUN ls /var/www/html
-ENTRYPOINT [ "/var/www/html/boostrap.sh" ]
+# RUN ls /var/www/html
+# ENTRYPOINT [ "/var/www/html/boostrap.sh" ]
 # ENTRYPOINT ["export FLASK_APP=./src/main.py && FLASK_RUN_PORT=8050 && flask run -h 127.0.0.1"]
+CMD ["export FLASK_APP=./src/main.py", "export FLASK_RUN_PORT=8050", "export flask run -h 127.0.0.1"]
+# CMD [ "./src/main.py", "export = FLASK_RUN_PORT=8050", "export flask run -h 127.0.0.1"]
