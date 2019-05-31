@@ -1,0 +1,6 @@
+access_key = "<aws access key>"
+secret_key = "<aws secret key>"
+region = "us-east-2"
+key_name = "mdas_key"
+public_key_path = "keys/public_key"
+private_key_path = "keys/private_key"
