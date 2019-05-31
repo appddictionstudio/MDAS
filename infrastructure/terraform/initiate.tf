@@ -92,6 +92,7 @@ resource "aws_instance" "docker_host" {
         "sudo chmod +x /usr/local/bin/docker-compose",
         "docker-compose version",
         "mkdir ~/mdas",
+        "mkdir ~/mdas/infrastructure",
         # "scp -o StrictHostKeyChecking=no -r ../../. ec2-user@${self.public_ip}:~/mdas"
     #   "sudo yum -y install python3",
     #   "sudo"
@@ -140,7 +141,7 @@ resource "aws_instance" "docker_host" {
         private_key = "${file(var.private_key_path)}"
     }
 
-    source      = "../../docker"
-    destination = "~/mdas"
+    source      = "../../infrastructure/docker"
+    destination = "~/mdas/infrastructure/docker"
   }
 }
