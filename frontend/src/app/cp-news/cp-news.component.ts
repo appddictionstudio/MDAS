@@ -9,7 +9,6 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class CpNewsComponent implements OnInit {
   displayedColumns: string[] = [
-    'image',
     'position',
     'name',
     'weight',
@@ -28,7 +27,7 @@ export class CpNewsComponent implements OnInit {
 
   ngOnInit() {
     this.companyService
-      .getNews(this.ticker)
+      .getNewsXignite(this.ticker)
       .toPromise()
       .then(newsData => {
         const news = newsData as any[];

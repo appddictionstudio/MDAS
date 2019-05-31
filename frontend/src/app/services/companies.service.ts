@@ -35,4 +35,8 @@ export class CompanyService {
   getNews(ticker: string) {
     return this.http.get(`${environment.API_URL}/news/` + ticker);
   }
+
+  getNewsXignite(ticker: string) {
+    return this.http.get(`${environment.API_URL}/newsXignite/` + ticker);
+  }
 }
