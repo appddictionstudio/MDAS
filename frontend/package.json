@@ -27,7 +27,7 @@
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
     "chartjs-plugin-labels": "^1.1.0",
-    "compile-sass": "^0.1.2",
+    "compile-sass": "^1.0.5",
     "core-js": "^2.5.4",
     "ng2-charts": "^2.2.3",
     "rxjs": "~6.5.2",
